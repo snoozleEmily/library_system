@@ -1,57 +1,96 @@
 from dash import *
 from fetch_data import *
 
-#save_user_data(users_data)
-new_user = {}
+single_user = {}
 
-#Cadastro de Usuários: nome, número de identificação (CPF) e contato.
+#Cadastro de Usuários: nome, número de identificação (CPF), contato e livro em posse
 class User:
-    def __init__(self, name, cpf, info, borrowed_book):
+    def __init__(self, name, cpf, info):
         self.name = name
         self.cpf = cpf
         self.info = info
-        self.borrowed_book = borrowed_book
-        
+
 def create_user():
-    name = input("Nome completo do usuário: ")
+    # Variáveis locais para armazenar os valores das entradas
+    name = None
+    cpf = None
+    info = None
 
-    while True:
-        cpf = input("CPF: ")
+    input_prompts = [
+        ('Nome completo do usuário', 'name'),
+        ('CPF', 'cpf'),
+        ('Número de telefone', 'info')
+    ]
 
-        if not cpf.isdigit():
-            print("[ERRO] O CPF deve conter apenas números")
-            continue
+    for prompt, attribute in input_prompts:
+        error = '[ERRO] O valor apresentado não pode ser aceito.'
+        
+        while True:
+            user_input = input(f'{prompt}: ')
+            try:
+                if attribute == 'name':
+                    if user_input == '' or user_input.isdigit():
+                        raise ValueError
+                    
+                elif attribute == 'cpf':
+                    if not int(user_input):
+                        error = '[ERRO] O CPF deve conter apenas números.'
+                        raise ValueError
+                    if len(user_input) != 11:
+                        error = '[ERRO] O CPF deve conter 11 dígitos.'
+                        raise ValueError
+                    
+                elif attribute == 'info':
+                    if not user_input.isdigit():
+                        error = '[ERRO] O número de telefone deve conter apenas números.'
+                        raise ValueError
+                    if len(user_input) != 9:
+                        error = '[ERRO] O número de telefone celular deve conter 9 dígitos.'
+                        raise ValueError 
+                break
+            except ValueError:
+                print(f'{error}')
 
-        if len(cpf) != 11:
-            print("[ERRO] O CPF deve conter 11 dígitos")
-            continue
-        break
-       
-    while True: 
-        info = input('Número de telefone: ')
-        if not info.isdigit():
-            print('[ERRO] O número de telefone deve conter apenas números')
-            continue
-        if len(info) != 9:
-            print('[ERRO] O número de telefone celular deve conter 9 dígitos')
-            continue
-        break 
+    #borrowed_book = input('')  #COMO LIGAR O USER AO BOOK?  Posso chamar loan() aqui?
 
-    borrowed_book = input('')  #COMO LIGAR O USER AO BOOK?  Posso chamar loan() aqui
+    # Passando as informações da classe User para uma variável
+    new_user = User(name, cpf, info)
 
-    global new_user
-    new_user = User(name, cpf, info, borrowed_book)
+    global single_user
+    single_user = {
+            'Nome': new_user.name,
+            'CPF': new_user.cpf,
+            'Contato': new_user.info
+            }
+    
+    return single_user and add_new_user()
 
-    # Exibe informações sobre o livro recém-adicionado
+def add_new_user():
+    users_data = fetch_storage_data()
     space()
-    print('Usuário Registrado Com Sucesso!') #erro, nn tá aparecendo
 
-def get_users_list():
-    users = get_users_list()
-    users.append(new_user)
-    print('Você adicionou os seguintes dados: ')
-    print(new_user)
+    print('Adicionar PERMANETEMENTE os seguintes dados?')
+    print(single_user)
+    
+    space()
+    print('1.SIM | 2.NÃO')
+    correct_input = input()
 
-    return users
+    if correct_input not in ['1', '2']:
+        print('[ERRO] Escolha uma das opções disponíveis.')
+        correct_input = input('1.SIM | 2.NÃO')
+    
+    # Salvar os dados do novo usuário permanentemente no armazenamento 
+    if correct_input == '1': 
+        users_data['users'].append(single_user) 
+        save_user_data(users_data)
+        print('Usuário Registrado Com Sucesso!')
+        # No final colocar opção desse novo usuário fazer um loan dum book
 
+    # Corrigir os dados do novo usuário 
+    if correct_input == '2':
+        create_user()
 
+    return users_data
+
+create_user()

@@ -1,27 +1,4 @@
-#Dictionary of all books 
-def get_books_list():
-    books = [{
-            'Número de Identificação': 0,
-            'Título': 'O pequeno príncipe',
-            'Autor': 'Antoine de Saint-Exupéry',
-            'Ano de Publicação': 1943,
-            'Copias Disponíveis': 12,
-            'Emprestado': 'S' #does this make sense? Since there are 12 copies avaliable
-        },]
-    return books
-
-#Gets the dictionary of all users 
-def get_users_list():
-    users = [{
-            'Nome': 'Emily Alvim',
-            'CPF': '15909505250', #shouldn't this be a number instead of string?
-            'Contato': '999990000', #shouldn't this be a number instead of string?
-        },]
-    return users
-
-
 #Passes info foward for the following:
-#3 Registrar Locação
 #4 Registrar Devolução
 #5 Consultar Livro
 #6 Gerar Relatório
@@ -29,44 +6,8 @@ def get_users_list():
 
 
 
-
-
-  #if is_loaned == 0:
-    #        is_loaned = True
-    #elif is_loaned <= 1:
-    #        is_loaned = False
-
-    #if is_loaned or copies_available or publish_year != int:
-    #    space()
-    #    print('[ERRO] O valor apresentado não pode ser aceito, tente novamente. ')
-    #    is_loaned = input('Insira somente números: ') # HOW CAN I PASS ONE OF THE 3 VALUES? is_loaned or copies_available or publish_year INSTEAD OF ONLY IS_LOANED??
-
-
-
-
 '''
-    # Opção de verificar se as informações adicionas estão corretas
-    is_data_correct = False
-    while is_data_correct == False:
-        print('Você adicionou os seguintes dados: ')
-        print(single_book)
-        space()
-        print('Inserir dados permanentemente no sistema:')
-        correct_data = input('1.SIM || 2.NÃO ')
-
-        if correct_data == 1:
-            is_data_correct == True
-            add_new_book()
-            space() 
-            print("Livro Registrado Com Sucesso!")
-            space() 
-        elif correct_data == 2:
-            create_book() 
-'''
-
-
-'''
-Problema de acentação no JSON
+Problema de acentuação no JSON
 https://pt.stackoverflow.com/questions/67604/encoding-utf-8-permite-acentos
 
 Quando uso somente o utf-8 os acentos ficam corrompidos também

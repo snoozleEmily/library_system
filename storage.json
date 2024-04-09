@@ -6,10 +6,7 @@
             "Autor": "Antoine de Saint-Exupéry",
             "Ano de Publicação": 1943,
             "Copias em Estoque": 12,
-            "Empréstimos": {
-                "Disponível": true,
-                "Copias Disponíveis": 7
-            }
+            "Copias Disponíveis": 7
         },
         {
             "Número de Identificação": "a6290144-c3b2-4db5-8741-a732304e14bb",
@@ -17,10 +14,7 @@
             "Autor": "Jane Austen",
             "Ano de Publicação": 1813,
             "Copias em Estoque": 4,
-            "Empréstimos": {
-                "Disponível": false,
-                "Copias Disponíveis": 0
-            }
+            "Copias Disponíveis": 2
         },
         {
             "Número de Identificação": "cfbf9-7269-4933-8714-6e07205ec2f7",
@@ -28,21 +22,15 @@
             "Autor": "George Orwell",
             "Ano de Publicação": 1949,
             "Copias em Estoque": 3,
-            "Empréstimos": {
-                "Disponível": true,
-                "Copias Disponíveis": 1
-            }
+            "Copias Disponíveis": 1
         },
         {
             "Número de Identificação": "34a2065a-a71b-4e5e-803e-a8952483eea7",
-            "Título": "a",
-            "Autor": "awd",
-            "Ano de Publicação": 2222,
-            "Copias em Estoque": 5,
-            "Empréstimos": {
-                "Disponível": true,
-                "Copias Disponíveis": 6
-            }
+            "Título": "Dom Casmurro",
+            "Autor": "Joaquim Maria Machado de Assis",
+            "Ano de Publicação": 1899,
+            "Copias em Estoque": 2,
+            "Copias Disponíveis": 0
         }
     ],
     "users": [

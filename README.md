@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains a library management system developed to help libraries in organizing their collections and managing loans effectively.
+This repository was made as an University project. It contains a library management system developed to help libraries in organizing their collections and managing loans effectively.
 
 ## Disclaimer
 
@@ -13,7 +13,7 @@ All information displayed about users is fake. The information displayed about t
 To use this library management system, follow these steps:
 
 1. Clone this repository to your local machine.
-2. Install Python if you haven't already.
+2. Install Python if you have not already.
 3. Navigate to the project directory.
 4. Run the main Python file to start the system.
 
