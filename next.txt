@@ -3,6 +3,8 @@
 #5 Consultar Livro
 #6 Gerar Relatório
 
+#7 Should I create a separte module just for the errors?
+
 
 
 
@@ -20,4 +22,43 @@ Utilizar UTF=8 with BOM: encoding='utf-8-sig'
 Parâmetro: ensure_ascii=False
 
 
+##CODIGO ANTIGO - NÃO FUNCIONAL
+
+    import json
+    #Pegar os dados do storage
+    def fetch_storage_data():
+        with open('D:/Projects/Python-studies/ampli_university_snipets/library_system/storage.json', 'r') as f:
+            return json.load(f)
+
+
+##CÓDIGO ATUAL - FUNCIONAL
+
+    import json
+    import os
+
+    #Pegar os dados do storage
+    def fetch_storage_data():
+        file_path = 'D:/Projects/Python-studies/ampli_university_snipets/library_system/storage.json'    
+        
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File '{file_path}' not found.")
+        
+        try:
+            with open(file_path, 'r', encoding='utf-8-sig') as f:
+                return json.load(f)
+        except json.decoder.JSONDecodeError as e:
+            print("Error decoding JSON:", e)
+            # Optionally, print the file content to see what's causing the error
+            with open(file_path, 'r', encoding='utf-8-sig') as f:
+                print("File content:", f.read())
+            raise
+
+    adicionei:
+    1. O modulo "os"
+    2. o tratamento de erro "FileNotFoundError" juntamente com "try" e "except"
+    3. prints para melhor entendimento de possíveis erros
+    4. comentários para melhor legibilidade do código
+
+
 '''
+
