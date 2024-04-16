@@ -6,7 +6,7 @@ def fetch_storage_data():
     file_path = 'D:/Projects/Python-studies/ampli_university_snipets/library_system/storage.json' 
     
     if not os.path.exists(file_path): # Verifica se o arquivo existe
-        raise FileNotFoundError(f"File '{file_path}' not found.") # Caso não encontrado, lança uma exceção FileNotFoundError
+        raise FileNotFoundError(f"Arquivo '{file_path}' não encontrado.") # Caso não encontrado, lança uma exceção FileNotFoundError
     
     try:
         with open(file_path, 'r', encoding='utf-8-sig') as f: # Tenta abrir o arquivo e carregar os dados JSON
@@ -19,8 +19,8 @@ def fetch_storage_data():
         with open(file_path, 'r', encoding='utf-8-sig') as f:
             print("Conteúdo do arquivo: ", f.read())
         raise
-  
 
+  
 #Salvar os livros novos no storage
 def save_book_data(books_data):
     with open('D:/Projects/Python-studies/ampli_university_snipets/library_system/storage.json', 'w', encoding='utf-8-sig') as f:
@@ -30,6 +30,8 @@ def save_book_data(books_data):
 def save_user_data(users_data):
     with open('D:/Projects/Python-studies/ampli_university_snipets/library_system/storage.json', 'w', encoding='utf-8-sig') as f:
         json.dump(users_data, f, ensure_ascii=False)
+
+
 
 #Atualizar mudanças de dados dos livros no storage
 def update_data(data):

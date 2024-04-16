@@ -92,5 +92,3 @@ def add_new_user():
         create_user()
 
     return users_data
-
-create_user()

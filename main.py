@@ -6,18 +6,20 @@ from loan import *
 
 while True:
     menu()
-    button = input()
-    
+    button = input('Escolha uma opção: ')
+    # o input não funciona pela primeira vez
+
     if button == '1':
         create_book()
+
     elif button == '2':
         create_user()
     
     elif button == '3':
-        loan()
-        
+        loan_book()
+    
     else:
         print('[ERRO] Opção inválida. Por favor, escolha uma das opções disponíveis no menu!')
-        dash()
-
-#Understanding classes and object-oriented programming - https://www.youtube.com/watch?v=_vr5faCXFo8
+        space()
+        continue  # Restart the loop to display the menu again
+         

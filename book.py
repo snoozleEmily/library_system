@@ -105,5 +105,3 @@ def add_new_book():
         create_book()
 
     return books_data
-
-create_book()

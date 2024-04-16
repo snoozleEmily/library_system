@@ -1,4 +1,28 @@
-#Passes info foward for the following:
+# Para cada cópia dos livros eu deveria gerar uma ID específica
+para identificar qual cópia foi emprestada. Tavlez em:
+
+def create_book():
+    id =  str(uuid.uuid4()) # Mude isso de lugar, daqui
+    ...
+    ...
+    publish_year = None
+    copies_available = None
+    is_loaned = None
+    id = None # Para cá!
+
+    numeric_input_prompts = [
+        ('Ano de publicação do livro', 'publish_year'),
+        ('Cópias em Estoque', 'copies_available'),
+        ('Cópias disponíveis para EMPRÉSTIMO', 'is_loaned')
+        ('ID', 'id')
+    ]
+# E passo uma ID diferente para CADA cópia, se tiverem 10 Cópias
+então terão 10 IDs
+
+
+
+
+
 #4 Registrar Devolução
 #5 Consultar Livro
 #6 Gerar Relatório
@@ -21,6 +45,7 @@ Funcionou somente 1 vez:
 Utilizar UTF=8 with BOM: encoding='utf-8-sig'
 Parâmetro: ensure_ascii=False
 
+Me ajude a polir mais a explicação do meu commit
 
 ##CODIGO ANTIGO - NÃO FUNCIONAL
 

@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This repository was made as an University project. It contains a library management system developed to help libraries in organizing their collections and managing loans effectively.
+This repository was made as an University project. It is a library management system developed to help libraries in organizing their collections and managing book loans effectively.
 
 ## Disclaimer
 
-All information displayed about users is fake. The information displayed about the books is true.
+All information displayed about users is fake. The information displayed about the books is fact-based.
 
 ## Usage
 

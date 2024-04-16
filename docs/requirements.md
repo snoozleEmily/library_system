@@ -1,4 +1,5 @@
 # Library Management System Requirements
+The following items are prerequisites for the project.
 
 - **Book Registration:**
   - Allows the registration of books in the system, including information such as title, author, year of publication, and number of available copies.

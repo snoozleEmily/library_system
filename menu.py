@@ -12,3 +12,4 @@ def menu():
     print('5) Consultar Livro')
     print('6) Gerar Relatório')
     print('7) Sair')
+    space()
