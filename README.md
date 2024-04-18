@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository was made as an University project. It is a library management system developed to help libraries in organizing their collections and managing book loans effectively.
+This repository was made as an University project. It is a library management system developed to help libraries organize their collections and manage book loans effectively.
 
 ## Disclaimer
 
@@ -19,7 +19,7 @@ To use this library management system, follow these steps:
 
 ## Requirements
 
-For a detailed list of requirements, please refer to the [requirements.txt](./docs/requirements.md) file.
+Please refer to the [requirements.txt](./docs/requirements.md) file for a detailed list of the pre-requirements.
 
 ## Contributing
 
