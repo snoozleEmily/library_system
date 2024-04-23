@@ -23,9 +23,8 @@ def get_user_data(attribute):
             print('Usuário encontrado: ')
             print(user)
 
-            return
+            return user
     not_found_error(f'{data_type}_value')  
-
 
 def get_book_data(attribute):
     search_value = input(f"Digite o {attribute.lower()}: ").lower()
@@ -34,12 +33,36 @@ def get_book_data(attribute):
         if book[attribute].lower() == search_value:
             print('Livro encontrado:')
             print(book)
+            return book
+        
+    not_found_error('any_book_value')
+    return None
+
+def make_loan(user, book):
+    # Atualiza o número de copias disponíveis
+    for lending_book in new_data['books']:
+        if lending_book['Número de Identificação'] == book['Número de Identificação']:
+
+            if lending_book['Copias Disponíveis'] == 0:
+                print("Livro indisponível no momento. Tente novamente mais tarde.")
+                return
             
-            return
-    not_found_error(f'any_book_value')  #Add msgs de erro diferentes para cada input?
+            lending_book['Copias Disponíveis'] -= 1
+            break
 
-    return book
+    # Atualiza borrowed_book para o user
+    user['borrowed_book'] = {
+        'Título': book['Título'],
+        'ID': book['Número de Identificação'] #Ter uma ID para cada cópia?
+    }
 
+    print("Emprestado:", book["Título"], "para", user["Nome"])
+    print("Copias Disponíveis atualizadas:", lending_book['Copias Disponíveis'])
+
+    update_data(user)
+    update_data(book)
+    
+    
 
 def loan_book(): #Refatorar esse código para aproveitar o code repetido? 
     print('Pesquisar usuário por: ')
@@ -49,29 +72,28 @@ def loan_book(): #Refatorar esse código para aproveitar o code repetido?
     user_search_type = input('')
 
     if user_search_type == '1':
-        get_user_data('Nome')
-
+        user = get_user_data('Nome')
+    
     elif user_search_type == '2':
-        get_user_data('CPF')
+        user = get_user_data('CPF')
 
 
     print('Pesquisar livro por: ')
     space()
     print('1) Nome')
-    print('2) Autor')
-    print('3) ID')
+    print('2) ID')
     book_search_type = input('')
     
     if book_search_type == '1':
-        get_book_data('Título')
+        book = get_book_data('Título')
 
     elif book_search_type == '2':
-        get_book_data('Autor')
+        book = get_book_data('Número de Identificação')
 
-    elif book_search_type == '3':
-        get_book_data('Número de Identificação')
-    
     else:
         print('[ERRO] Escolha uma das opções disponíveis.') 
+
+    make_loan(user, book)
+
 
 loan_book()
