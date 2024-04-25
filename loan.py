@@ -3,7 +3,6 @@ from fetch_data import *
 from not_found_error import *
 
 data = fetch_storage_data()
-new_data = update_data(data)
 
 def get_user_data(attribute):
     search_value = input(f"Digite o {attribute}: ")
@@ -16,7 +15,7 @@ def get_user_data(attribute):
         search_value = search_value.lower()
         data_type = 'name' # Define o tipo de dado como Nome
 
-    for user in new_data['users']:
+    for user in data['users']:
         # Retorna o valor requerido
         if (data_type == 'CPF' and user['CPF'] == search_value) or \
            (data_type == 'name' and user[attribute].lower() == search_value):
@@ -29,18 +28,17 @@ def get_user_data(attribute):
 def get_book_data(attribute):
     search_value = input(f"Digite o {attribute.lower()}: ").lower()
 
-    for book in new_data['books']:
+    for book in data['books']:
         if book[attribute].lower() == search_value:
             print('Livro encontrado:')
             print(book)
+
             return book
-        
     not_found_error('any_book_value')
-    return None
 
 def make_loan(user, book):
     # Atualiza o número de copias disponíveis
-    for lending_book in new_data['books']:
+    for lending_book in data['books']:
         if lending_book['Número de Identificação'] == book['Número de Identificação']:
 
             if lending_book['Copias Disponíveis'] == 0:
@@ -53,14 +51,14 @@ def make_loan(user, book):
     # Atualiza borrowed_book para o user
     user['borrowed_book'] = {
         'Título': book['Título'],
-        'ID': book['Número de Identificação'] #Ter uma ID para cada cópia?
+        'ID': book['Número de Identificação']
     }
 
     print("Emprestado:", book["Título"], "para", user["Nome"])
     print("Copias Disponíveis atualizadas:", lending_book['Copias Disponíveis'])
 
-    update_data(user)
-    update_data(book)
+    save_user_data(user)
+    save_book_data(book)
     
     
 
