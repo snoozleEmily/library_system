@@ -57,10 +57,7 @@ def make_loan(user, book):
     print("Emprestado:", book["Título"], "para", user["Nome"])
     print("Copias Disponíveis atualizadas:", lending_book['Copias Disponíveis'])
 
-    save_user_data(user)
-    save_book_data(book)
-    
-    
+    save_data(data)
 
 def loan_book(): #Refatorar esse código para aproveitar o code repetido? 
     print('Pesquisar usuário por: ')
@@ -90,6 +87,8 @@ def loan_book(): #Refatorar esse código para aproveitar o code repetido?
 
     else:
         print('[ERRO] Escolha uma das opções disponíveis.') 
+
+
 
     make_loan(user, book)
 

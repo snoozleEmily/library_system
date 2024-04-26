@@ -30,7 +30,7 @@
             "Autor": "Joaquim Maria Machado de Assis",
             "Ano de Publicação": 1899,
             "Copias em Estoque": 2,
-            "Copias Disponíveis": 1
+            "Copias Disponíveis": 0
         }
     ],
     "users": [
@@ -38,7 +38,10 @@
             "Nome": "Eugênia Vieira Almeida",
             "CPF": 15909505250,
             "Contato": 997990022,
-            "borrowed_book": ""
+            "borrowed_book": {
+                "Título": "Dom Casmurro",
+                "ID": "34a2065a-a71b-4e5e-803e-a8952483eea7"
+            }
         },
         {
             "Nome": "João Marcos da Silva",
