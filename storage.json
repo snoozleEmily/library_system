@@ -21,8 +21,8 @@
             "Título": "1984",
             "Autor": "George Orwell",
             "Ano de Publicação": 1949,
-            "Copias em Estoque": 3,
-            "Copias Disponíveis": 1
+            "Copias em Estoque": 10,
+            "Copias Disponíveis": 5
         },
         {
             "Número de Identificação": "34a2065a-a71b-4e5e-803e-a8952483eea7",
@@ -47,13 +47,19 @@
             "Nome": "João Marcos da Silva",
             "CPF": 17909775212,
             "Contato": 999971121,
-            "borrowed_book": ""
+            "borrowed_book": {
+                "Título": "1984",
+                "ID": "cfbf9-7269-4933-8714-6e07205ec2f7"
+            }
         },
         {
             "Nome": "Mariana de Carvalho Dias",
             "CPF": 14905507899,
             "Contato": 997992212,
-            "borrowed_book": ""
+            "borrowed_book": {
+                "Título": "1984",
+                "ID": "cfbf9-7269-4933-8714-6e07205ec2f7"
+            }
         },
         {
             "Nome": "Daniel Alves Araújo dos Santos",
@@ -63,7 +69,7 @@
         },
         {
             "Nome": "Samuel Oliveira Batista",
-            "CPF": 18911508189,
+            "CPF": 11318708549,
             "Contato": 997977784,
             "borrowed_book": ""
         },

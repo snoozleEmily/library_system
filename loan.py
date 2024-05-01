@@ -1,65 +1,49 @@
 from dash import *
-from fetch_data import *
-from not_found_error import *
-
-data = fetch_storage_data()
-
-def get_user_data(attribute):
-    search_value = input(f"Digite o {attribute}: ")
-
-    # Verifica se é integer ou string
-    try:
-        search_value = int(search_value)
-        data_type = 'CPF' # Define o tipo de dado como CPF
-    except ValueError:
-        search_value = search_value.lower()
-        data_type = 'name' # Define o tipo de dado como Nome
-
-    for user in data['users']:
-        # Retorna o valor requerido
-        if (data_type == 'CPF' and user['CPF'] == search_value) or \
-           (data_type == 'name' and user[attribute].lower() == search_value):
-            print('Usuário encontrado: ')
-            print(user)
-
-            return user
-    not_found_error(f'{data_type}_value')  
-
-def get_book_data(attribute):
-    search_value = input(f"Digite o {attribute.lower()}: ").lower()
-
-    for book in data['books']:
-        if book[attribute].lower() == search_value:
-            print('Livro encontrado:')
-            print(book)
-
-            return book
-    not_found_error('any_book_value')
+from get_data import *
+from error import *
 
 def make_loan(user, book):
-    # Atualiza o número de copias disponíveis
-    for lending_book in data['books']:
-        if lending_book['Número de Identificação'] == book['Número de Identificação']:
+    
+     # Verifica se o usuário já está com um livro emprestado
+    if 'borrowed_book' in user and user['borrowed_book']:
+        found_error('unavailable_user')
+        print('Livro: ', user['borrowed_book'])
+        print('Deseja realizar devolução?')
+        print('1) SIM')
+        print('2) NÃO, VOLTAR PARA O MENU')
 
-            if lending_book['Copias Disponíveis'] == 0:
-                print("Livro indisponível no momento. Tente novamente mais tarde.")
-                return
-            
-            lending_book['Copias Disponíveis'] -= 1
-            break
+        # CHAMAR A FUNÇÃO DE DEVOLUÇÃO AQUI
+        return
+    
+    else:
+        for lending_book in data['books']: # Atualiza o número de copias disponíveis
+            if lending_book['Número de Identificação'] == book['Número de Identificação']:
 
-    # Atualiza borrowed_book para o user
-    user['borrowed_book'] = {
-        'Título': book['Título'],
-        'ID': book['Número de Identificação']
-    }
+                if lending_book['Copias Disponíveis'] == 0:
+                    found_error('unavailable_book')
+                    return
+                
+                lending_book['Copias Disponíveis'] -= 1
+                break
+        
+        # Atualiza os dados usuário registrando o empréstimo
+        for user_data in data['users']:
+            if user_data['Nome'] == user['Nome'] or user_data['CPF'] == user['CPF']:
+                # Atualiza borrowed_book para o user
+                user['borrowed_book'] = {
+                    'Título': book['Título'],
+                    'ID': book['Número de Identificação']}
+                
+                user_data.update(user)
+                break
 
-    print("Emprestado:", book["Título"], "para", user["Nome"])
-    print("Copias Disponíveis atualizadas:", lending_book['Copias Disponíveis'])
+        print("Emprestado:", book["Título"], "para", user["Nome"])
+        print("Copias Disponíveis atualizadas:", lending_book['Copias Disponíveis'])
 
-    save_data(data)
+        save_data(data)
 
-def loan_book(): #Refatorar esse código para aproveitar o code repetido? 
+def loan_book():
+    
     print('Pesquisar usuário por: ')
     space()
     print('1) Nome')
@@ -71,6 +55,9 @@ def loan_book(): #Refatorar esse código para aproveitar o code repetido?
     
     elif user_search_type == '2':
         user = get_user_data('CPF')
+
+    else:
+        found_error('invalid_value')
 
 
     print('Pesquisar livro por: ')
@@ -86,11 +73,9 @@ def loan_book(): #Refatorar esse código para aproveitar o code repetido?
         book = get_book_data('Número de Identificação')
 
     else:
-        print('[ERRO] Escolha uma das opções disponíveis.') 
-
+        found_error('invalid_value')
 
 
     make_loan(user, book)
-
 
 loan_book()

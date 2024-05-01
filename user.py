@@ -1,5 +1,6 @@
 from dash import *
 from fetch_data import *
+from error import *
 
 single_user = {}
 
@@ -21,35 +22,34 @@ def create_user():
         ('CPF', 'cpf'),
         ('Número de telefone', 'info')
     ]
-
+    
+    # Garante que os inputs estão corretos
     for prompt, attribute in input_prompts:
-        error = '[ERRO] O valor apresentado não pode ser aceito.'
-        
         while True:
             user_input = input(f'{prompt}: ')
+            error = 'invalid_value'
+
             try:
                 if attribute == 'name':
                     if user_input == '' or user_input.isdigit():
+                        error = 'number_length'
                         raise ValueError
+                    name = user_input
                     
                 elif attribute == 'cpf':
-                    if not int(user_input):
-                        error = '[ERRO] O CPF deve conter apenas números.'
+                    if len(user_input) != 11 or not user_input.isdigit():
+                        error = 'number_length'
                         raise ValueError
-                    if len(user_input) != 11:
-                        error = '[ERRO] O CPF deve conter 11 dígitos.'
-                        raise ValueError
-                    
+                    cpf = user_input
+
                 elif attribute == 'info':
-                    if not user_input.isdigit():
-                        error = '[ERRO] O número de telefone deve conter apenas números.'
+                    if len(user_input) != 9 or not user_input.isdigit():
+                        error = 'number_length'
                         raise ValueError
-                    if len(user_input) != 9:
-                        error = '[ERRO] O número de telefone celular deve conter 9 dígitos.'
-                        raise ValueError 
+                    info = user_input
                 break
             except ValueError:
-                print(f'{error}')
+                found_error(error)
 
     #borrowed_book = input('')  #COMO LIGAR O USER AO BOOK?  Posso chamar loan() aqui?
 
@@ -77,18 +77,20 @@ def add_new_user():
     correct_input = input()
 
     if correct_input not in ['1', '2']:
-        print('[ERRO] Escolha uma das opções disponíveis.')
+        found_error('invalid_value')
         correct_input = input('1.SIM | 2.NÃO')
     
-    # Salvar os dados do novo usuário permanentemente no armazenamento 
+    # Salva os dados do novo usuário 
     if correct_input == '1': 
         users_data['users'].append(single_user) 
-        save_user_data(users_data)
+        save_data(users_data)
         print('Usuário Registrado Com Sucesso!')
         # No final colocar opção desse novo usuário fazer um loan dum book
 
-    # Corrigir os dados do novo usuário 
+    # Corrigi os dados do novo usuário 
     if correct_input == '2':
         create_user()
 
     return users_data
+
+create_user()

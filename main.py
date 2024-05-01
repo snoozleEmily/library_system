@@ -1,8 +1,10 @@
+from found_error import *
 from dash import *
 from menu import *
 from book import *
 from user import *
 from loan import * 
+
 
 while True:
     menu()
@@ -19,7 +21,7 @@ while True:
         loan_book()
     
     else:
-        print('[ERRO] Opção inválida. Por favor, escolha uma das opções disponíveis no menu!')
+        found_error('invalid_value')
         space()
         continue  # Restart the loop to display the menu again
-         
+        
