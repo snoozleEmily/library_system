@@ -13,5 +13,3 @@ def menu():
     print('6) Gerar Relatório')
     print('7) Sair')
     space()
-
-    # Is writing print all the time best practice????????

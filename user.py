@@ -29,29 +29,32 @@ def create_user():
             user_input = input(f'{prompt}: ')
             error = 'invalid_value'
 
+            def is_digit():
+                if not user_input.isdigit(): #ADD comentário aquiiiiii
+                    raise ValueError
             try:
                 if attribute == 'name':
                     if user_input == '' or user_input.isdigit():
                         error = 'number_length'
                         raise ValueError
                     name = user_input
-                    
+
                 elif attribute == 'cpf':
-                    if len(user_input) != 11 or not user_input.isdigit():
-                        error = 'number_length'
+                    is_digit()
+                    if len(user_input) != 11:
+                        error = 'cpf_length'
                         raise ValueError
                     cpf = user_input
 
                 elif attribute == 'info':
-                    if len(user_input) != 9 or not user_input.isdigit():
-                        error = 'number_length'
+                    is_digit()
+                    if len(user_input) != 9:
+                        error = 'info_length'
                         raise ValueError
                     info = user_input
                 break
             except ValueError:
                 found_error(error)
-
-    #borrowed_book = input('')  #COMO LIGAR O USER AO BOOK?  Posso chamar loan() aqui?
 
     # Passando as informações da classe User para uma variável
     new_user = User(name, cpf, info)
@@ -85,7 +88,6 @@ def add_new_user():
         users_data['users'].append(single_user) 
         save_data(users_data)
         print('Usuário Registrado Com Sucesso!')
-        # No final colocar opção desse novo usuário fazer um loan dum book
 
     # Corrigi os dados do novo usuário 
     if correct_input == '2':
