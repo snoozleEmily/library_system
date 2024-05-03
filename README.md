@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This repository was made as an University project. It is a library management system developed to help libraries organize their collections and manage book loans effectively.
+This repository was made as an University project. It is a library management system developed to help libraries organize their collections and manage book loans effectively. 
+
+The code includes comments in Portuguese as the University's course is conducted in this language for clarity with the educational context.
 
 ## Disclaimer
 

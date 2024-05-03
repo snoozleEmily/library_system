@@ -1,3 +1,27 @@
-#4 Registrar Devolução
+#4 Registrar Devolução -> WIP
+
 #5 Consultar Livro
 #6 Gerar Relatório
+
+
+Code Improvements:
+Segundo as convenções de nomenclatura do 
+próprio Python Enhancement Proposal 8, algumas preocupações incluem:
+
+Pacote e nomes de módulos [Mudar get_data e fetch_data]
+Os módulos devem ter nomes pequenos, sendo 
+estes escritos em minúsculo por completo.
+Ex: 
+package
+
+Linhas em branco
+Linhas em branco são recomendadas para separar funções e 
+definições de classes (duas linhas), além de definições de métodos (uma linha).
+
+O que é uma Constante?
+Ex: 
+MAX_OVERFLOW e TOTAL.
+
+
+https://pt.stackoverflow.com/questions/8613/conven%c3%a7%c3%b5es-de-nomes-para-vari%c3%a1veis-e-fun%c3%a7%c3%b5es-no-python
+^^^^^^
