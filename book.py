@@ -15,7 +15,7 @@ class Book:
 
 single_book = {} #Criando variável global     
 def create_book():
-    id =  str(uuid.uuid4()) # Gera uma ID aleatória
+    id =  str(uuid.uuid4()) # Gera uma ID aleatória UMA ID PARA CADA LIVRO?
     title = input('Título do livro: ')
     author = input('Autor do livro: ')
     

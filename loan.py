@@ -14,7 +14,7 @@ def loan_book():
             if lending_book['Número de Identificação'] == book['Número de Identificação']:
 
                 if lending_book['Copias Disponíveis'] == 0:
-                    print("Livro indisponível no momento. Tente novamente mais tarde.")
+                    found_error('unavailable_book')
                     return
                 # Atualiza o número de copias disponíveis
                 lending_book['Copias Disponíveis'] -= 1 

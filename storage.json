@@ -22,21 +22,21 @@
             "Autor": "George Orwell",
             "Ano de Publicação": 1949,
             "Copias em Estoque": 10,
-            "Copias Disponíveis": 5
+            "Copias Disponíveis": 7
         },
         {
             "Número de Identificação": "34a2065a-a71b-4e5e-803e-a8952483eea7",
             "Título": "Dom Casmurro",
             "Autor": "Joaquim Maria Machado de Assis",
             "Ano de Publicação": 1899,
-            "Copias em Estoque": 2,
-            "Copias Disponíveis": 0
+            "Copias em Estoque": 3,
+            "Copias Disponíveis": 1
         }
     ],
     "users": [
         {
             "Nome": "Eugênia Vieira Almeida",
-            "CPF": 15909505250,
+            "CPF": 15933335250,
             "Contato": 997990022,
             "borrowed_book": {
                 "Título": "Dom Casmurro",
@@ -45,47 +45,44 @@
         },
         {
             "Nome": "João Marcos da Silva",
-            "CPF": 17909775212,
+            "CPF": 17907775212,
             "Contato": 999971121,
-            "borrowed_book": {
-                "Título": "1984",
-                "ID": "cfbf9-7269-4933-8714-6e07205ec2f7"
-            }
+            "borrowed_book": ""
         },
         {
             "Nome": "Mariana de Carvalho Dias",
-            "CPF": 14905507899,
+            "CPF": 14905507999,
             "Contato": 997992212,
-            "borrowed_book": {
-                "Título": "1984",
-                "ID": "cfbf9-7269-4933-8714-6e07205ec2f7"
-            }
+            "borrowed_book": ""
         },
         {
             "Nome": "Daniel Alves Araújo dos Santos",
             "CPF": 18911508189,
             "Contato": 997445411,
-            "borrowed_book": {
-                "Título": "1984",
-                "ID": "cfbf9-7269-4933-8714-6e07205ec2f7"
-            }
+            "borrowed_book": ""
         },
         {
             "Nome": "Samuel Oliveira Batista",
-            "CPF": 11318708549,
+            "CPF": 11318708222,
             "Contato": 997977784,
             "borrowed_book": ""
         },
         {
             "Nome": "Cláudia Márcia Sales",
-            "CPF": 18911508189,
+            "CPF": 11311508111,
             "Contato": 997983581,
             "borrowed_book": ""
         },
         {
             "Nome": "Fátima Paolla Matos",
-            "CPF": 18911508189,
-            "Contato": 977123884,
+            "CPF": 18911000185,
+            "Contato": 977100185,
+            "borrowed_book": ""
+        },
+        {
+            "Nome": "Gustavo Paulo Carvalho",
+            "CPF": 10941494141,
+            "Contato": 998414181,
             "borrowed_book": ""
         }
     ]

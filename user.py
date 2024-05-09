@@ -30,7 +30,7 @@ def create_user():
             error = 'invalid_value'
 
             def is_digit():
-                if not user_input.isdigit(): #ADD comentário aquiiiiii
+                if not user_input.isdigit(): #ADD comentários aquiiiiii
                     raise ValueError
             try:
                 if attribute == 'name':
@@ -69,13 +69,9 @@ def create_user():
     return single_user and add_new_user()
 
 def add_new_user():
-    users_data = fetch_storage_data()
     space()
-
     print('Adicionar PERMANETEMENTE os seguintes dados?')
     print(single_user)
-    
-    space()
     print('1.SIM | 2.NÃO')
     correct_input = input()
 
@@ -85,14 +81,14 @@ def add_new_user():
     
     # Salva os dados do novo usuário 
     if correct_input == '1': 
-        users_data['users'].append(single_user) 
-        save_data(users_data)
+        data['users'].append(single_user) 
+        save_data(data)
         print('Usuário Registrado Com Sucesso!')
 
     # Corrigi os dados do novo usuário 
     if correct_input == '2':
         create_user()
 
-    return users_data
+    return data
 
 create_user()
