@@ -27,4 +27,3 @@ error_messages = {
 def found_error(entry_type):
     if entry_type in error_messages:
         print(error_messages[entry_type])
-        space()

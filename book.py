@@ -3,7 +3,7 @@ from dash import *
 from fetch_data import *
 from error import *
 
-#Cadastro de Livros: número de identificação (id), título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
+#Cadastro de Livros: ID, título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
 class Book:
     def __init__(self, id, title, author, publish_year, copies_available, is_loaned):
         self.id = id 
@@ -64,13 +64,13 @@ def create_book():
 
     global single_book
     single_book = {
-            'Número de Identificação': new_book.id,
-            'Título': new_book.title,
-            'Autor': new_book.author,
-            'Ano de Publicação': new_book.publish_year,
-            'Copias em Estoque': new_book.copies_available,
-            'Empréstimos': new_book.is_loaned
-            }
+        'ID': new_book.id,
+        'Título': new_book.title,
+        'Autor': new_book.author,
+        'Ano de Publicação': new_book.publish_year,
+        'Copias em Estoque': new_book.copies_available,
+        'Empréstimos': new_book.is_loaned
+        }
     
     return single_book and add_new_book()
 
@@ -101,4 +101,4 @@ def add_new_book():
 
     return books_data
 
-create_book()
+#create_book()

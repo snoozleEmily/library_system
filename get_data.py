@@ -2,45 +2,46 @@ from dash import *
 from fetch_data import *
 from error import *
 
-def search_data():
-    
-    def get_user_data(attribute):
-        search_value = input(f"Digite o {attribute}: ")
-        data_type = 'invalid_value'
-
+def get_user_data(attribute):
+        search_value = input(f"Digite o {attribute}: ") # Guarda o input numa variável
+        error_type = 'invalid_value' # Define erro padrão
+        
         if attribute == 'Nome':
-            data_type = 'name'
+            error_type = 'name'
         elif attribute == 'CPF':
             try:
                 search_value = int(search_value)
-                data_type = 'CPF'
+                error_type = 'CPF'
+                if search_value != 11: #TÁ DANDO PROBLEMA AQUI?
+                    # Se o CPF não tive 11 digitos, exibe um erro
+                    found_error('cpf_length')
             except ValueError:  
-                # Se o CPF não for um número válido, exibe um erro
-                found_error(data_type)
+                # Se o input do CPF não for um número, exibe um erro
+                found_error(error_type)
                 ask_user_input()
                 return
         else:
-            # Se o atributo for desconhecido, exibe um erro
-            found_error(f'invalid_{data_type}') 
+            # Se o input for desconhecido, exibe um erro
+            found_error(f'invalid_{error_type}')
             ask_user_input()
 
         for user in data['users']:
             if user[attribute] == search_value:
-                print('Usuário encontrado:')
+                print('Usuário: ')
                 print(user)
                 space()
                 return user
             
-         # Se o usuário não for encontrado, exibe um erro   
-        found_error(data_type) 
+         # Se o usuário não for encontrado, exibe um erro  
+        found_error(f'invalid_{error_type}')
         ask_user_input()
     
-    def ask_user_input():
+def ask_user_input():
         print('Pesquisar usuário por: ')
         space()
         print('1) Nome')
         print('2) CPF')
-        user_search = input('')
+        user_search = input('') # Guarda o input numa variável
 
         if user_search == '1':
             user = get_user_data('Nome')
@@ -53,14 +54,13 @@ def search_data():
             found_error('invalid_value') 
             ask_user_input()
         
-    ask_user_input()
-
-    def get_book_data(attribute):
-        search_value = input(f"Digite o {attribute}: ")
-
+   
+def get_book_data(attribute):
+        search_value = input(f"Digite o {attribute}: ") # Guarda o input numa variável
+        
         for book in data['books']:
             if book[attribute].lower() == search_value.lower():
-                print('Livro encontrado:')
+                print('Livro: ')
                 print(book)
                 space()
                 return book
@@ -69,26 +69,27 @@ def search_data():
         found_error('invalid_book') 
         ask_book_input()
     
-    def ask_book_input():
+def ask_book_input():
         print('Pesquisar livro por: ')
         space()
         print('1) Nome')
         print('2) ID')
         print('3) Autor')
-        book_search = input('')
+        book_search = input('') # Guarda o input numa variável
 
         if book_search == '1':
             book = get_book_data('Título')
+            return book
         elif book_search == '2':
-            book = get_book_data('Número de Identificação')
+            book = get_book_data('ID')
+            return book
         elif book_search == '3':
-            book = get_book_data('Autor')    
+            book = get_book_data('Autor')
+            return book    
         else:
             # Se o input não for '1', '2' ou '3', exibe um erro
             found_error('invalid_value') 
-            ask_book_input()
-        return book
-    
-    ask_book_input()
+            ask_book_input()        
 
-search_data()
+#ask_user_input()
+#ask_book_input()

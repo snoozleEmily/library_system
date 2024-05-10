@@ -5,29 +5,29 @@ from fetch_data import *
 #from devolution import *
 
 def loan_book():
-    user, book = search_data()
+    user = ask_user_input()
+    book = ask_book_input()
 
     def make_loan(user,book):
         
         # Verifica se o usuário já está com um livro emprestado
-        for lending_book in data['books']:
-            if lending_book['Número de Identificação'] == book['Número de Identificação']:
-
-                if lending_book['Copias Disponíveis'] == 0:
+        for loaned_book in data['books']:
+            if loaned_book['Número de Identificação'] == book['Número de Identificação']:
+                if loaned_book['Copias Disponíveis'] == 0:
                     found_error('unavailable_book')
                     return
                 # Atualiza o número de copias disponíveis
-                lending_book['Copias Disponíveis'] -= 1 
+                loaned_book['Copias Disponíveis'] -= 1 
                 break
 
         # Atualiza os dados usuário registrando o empréstimo
-        user['borrowed_book'] = {
+        user['Livro Em Posse'] = {
             'Título': book['Título'],
             'ID': book['Número de Identificação']
         }
 
         print("Emprestado:", book["Título"], "para", user["Nome"])
-        print("Copias Disponíveis atualizadas:", lending_book['Copias Disponíveis'])
+        print("Copias Disponíveis atualizadas:", loaned_book['Copias Disponíveis'])
 
         save_data(data)
 
