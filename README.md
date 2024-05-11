@@ -10,7 +10,7 @@ The code includes comments in Portuguese for clarity with the educational contex
 
 All information displayed about users is fake. The information displayed about the books is fact-based.
 
-## Usage
+## Usage 
 
 To use this library management system, follow these steps:
 
@@ -21,7 +21,7 @@ To use this library management system, follow these steps:
 
 ## Requirements
 
-Please refer to the [requirements.txt](./docs/requirements.md) file for a detailed list of the pre-requirements.
+Please refer to the [requirements.txt](./docs/requirements.md) file for a detailed list of the pre-requirements made by the professors.
 
 ## Contributing
 

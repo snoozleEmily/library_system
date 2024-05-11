@@ -27,10 +27,10 @@ while True:
         make_devolution()
     elif button == '5':
         # Faz a consulta de um livro
-        print('works1')
+        ask_book_input()
     elif button == '6':
         # Gera um relatório
-        print('works2')
+        print('Relatório')
     elif button == '7':
         # Finaliza o programa
         print('Sessão Encerrada. Até mais!')

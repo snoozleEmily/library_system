@@ -23,4 +23,4 @@ def make_devolution():
     # Salva os novos dados
     save_data(data) 
 
-make_devolution()
+#make_devolution()

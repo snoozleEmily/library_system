@@ -3,18 +3,22 @@ from fetch_data import *
 from error import *
 
 def get_user_data(attribute):
-        search_value = input(f"Digite o {attribute}: ") # Guarda o input numa variável
+        # Guarda o input na variável search_value
+        search_value = input(f"Digite o {attribute}: ")
         error_type = 'invalid_value' # Define erro padrão
         
         if attribute == 'Nome':
             error_type = 'name'
         elif attribute == 'CPF':
             try:
-                search_value = int(search_value)
-                error_type = 'CPF'
-                if search_value != 11: #TÁ DANDO PROBLEMA AQUI?
+                if len(search_value) != 11: #TÁ DANDO PROBLEMA AQUI?
                     # Se o CPF não tive 11 digitos, exibe um erro
                     found_error('cpf_length')
+
+                # Converte o input do CPF em integer    
+                search_value = int(search_value)
+                error_type = 'CPF'
+
             except ValueError:  
                 # Se o input do CPF não for um número, exibe um erro
                 found_error(error_type)
@@ -41,7 +45,8 @@ def ask_user_input():
         space()
         print('1) Nome')
         print('2) CPF')
-        user_search = input('') # Guarda o input numa variável
+        # Guarda o input na variável user_search
+        user_search = input('') 
 
         if user_search == '1':
             user = get_user_data('Nome')
@@ -56,7 +61,8 @@ def ask_user_input():
         
    
 def get_book_data(attribute):
-        search_value = input(f"Digite o {attribute}: ") # Guarda o input numa variável
+        # Guarda o input na variável search_value
+        search_value = input(f"Digite o {attribute}: ") 
         
         for book in data['books']:
             if book[attribute].lower() == search_value.lower():
@@ -75,7 +81,8 @@ def ask_book_input():
         print('1) Nome')
         print('2) ID')
         print('3) Autor')
-        book_search = input('') # Guarda o input numa variável
+        # Guarda o input na variável book_search
+        book_search = input('')
 
         if book_search == '1':
             book = get_book_data('Título')

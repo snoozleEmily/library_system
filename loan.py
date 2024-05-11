@@ -33,7 +33,7 @@ def loan_book():
 
     make_loan(user,book)
 
-loan_book()
+#loan_book()
 
 '''    # Verifica se o usuário já está com um livro emprestado
         if 'borrowed_book' in user and user['borrowed_book'] != '':

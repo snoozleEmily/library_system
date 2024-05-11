@@ -1,7 +1,4 @@
-#4 Registrar Devolução -> WIP
-
-#5 Consultar Livro
-#6 Gerar Relatório
+#6 Gerar Relatório -> WIP
 
 
 Code Improvements:
