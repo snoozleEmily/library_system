@@ -19,7 +19,7 @@ def create_book():
     title = input('Título do livro: ')
     author = input('Autor do livro: ')
     
-    # Variáveis locais para armazenar os valores das entradas
+    # Variáveis locais para armazenar os valores dos inputs
     publish_year = None
     copies_available = None
     is_loaned = None

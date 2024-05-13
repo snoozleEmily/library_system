@@ -1,5 +1,19 @@
 #6 Gerar Relatório -> WIP
 
+In order to show all avaliable books (for the report module) 
+I need for each book unit to have a unique ID
+> Create another proprety in each book in json and chunk it down 
+    to each ID's and boolean value if avaliable or not
+> Implement new ID's in book
+> Test Loan and Devolution
+> Either 'Copias Disponíveis' has to talk to this new proprety
+    or it will be itself the new proprety
+        > If so I can check for the numbers of items in it(kinda like length)
+
+
+
+>Test every module 
+
 
 Code Improvements:
 Segundo as convenções de nomenclatura do 
