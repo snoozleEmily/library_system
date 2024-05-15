@@ -11,7 +11,7 @@ error_messages = {
     'info_length': '[ERRO] Oh là là! Telefone, é você? Precisamos de todas as suas nove vidas! Por favor digite exatamente 9 números.',
     'year_length': '[ERRO] O ano precisa ter quatro números. Nossa biblioteca não aceita livros tão antigos assim!',
     'year_current': f'[ERRO] Ano inválido. Parece que estamos viajando para o futuro! Por favor, insira um ano válido ANTES de {current_year}.',
-    'exceeded_book': '[ERRO] O número de cópias emprestadas não pode ser maior do que o das cópias em estoque.',
+    'exceeded_book_limit': '[ERRO] O número de cópias disponíveis não pode ser maior do que o das cópias em estoque.',
 
     # Valores Inválidos
     'invalid_value': '[ERRO] Essa não! Esse valor parece ser inválido. Por favor, tente novamente.',
@@ -21,7 +21,8 @@ error_messages = {
     
     # Itens Indisponíveis
     'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Faça uma pausa, pegue um café e tente novamente amanhã. Quem sabe esse livro não decide esperar por você na prateleira da próxima vez!',
-    'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.'
+    'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
+    'missing_user': '[ERRO] Verifiquei aqui que não temos nenhum usuário cadastrado com esse livro em sua posse. Por favor, cadastre-o agora para evitar problemas.'
 }
 
 def found_error(entry_type):

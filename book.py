@@ -3,31 +3,29 @@ from dash import *
 from fetch_data import *
 from error import *
 
-#Cadastro de Livros: ID, título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
+#Cadastro de Livros: título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
 class Book:
-    def __init__(self, id, title, author, publish_year, copies_available, is_loaned):
-        self.id = id 
+    def __init__(self, title, author, publish_year, copies_available, copies_in_stock):
         self.title = title
         self.author = author
         self.publish_year = publish_year
         self.copies_available = copies_available
-        self.is_loaned = is_loaned
+        self.copies_in_stock = copies_in_stock
 
 single_book = {} #Criando variável global     
 def create_book():
-    id =  str(uuid.uuid4()) # Gera uma ID aleatória UMA ID PARA CADA LIVRO?
     title = input('Título do livro: ')
     author = input('Autor do livro: ')
     
     # Variáveis locais para armazenar os valores dos inputs
     publish_year = None
+    copies_in_stock = None
     copies_available = None
-    is_loaned = None
 
     numeric_input_prompts = [
         ('Ano de publicação do livro', 'publish_year'),
-        ('Cópias em Estoque', 'copies_available'),
-        ('Cópias disponíveis para empréstimo', 'is_loaned')
+        ('Cópias em Estoque', 'copies_in_stock'),
+        ('Cópias Disponíveis', 'copies_available')
     ]
 
     # Garante que os inputs numerais estão corretos
@@ -47,31 +45,38 @@ def create_book():
                         error = 'year_current'
                         raise ValueError
                     
+                if attribute == 'copies_in_stock':
+                    copies_in_stock = int(user_input) 
+                    
                 if attribute == 'copies_available':
                     copies_available = int(user_input)
 
-                elif attribute == 'is_loaned':
-                    is_loaned = int(user_input)
-                    if copies_available < is_loaned:
-                        error = 'exceeded_book'
-                        raise ValueError             
+                    if copies_in_stock < copies_available:
+                        error = 'exceeded_book_limit'
+                        raise ValueError
+                    
+                    copies_available = []
+                    for _ in range(copies_in_stock):
+                        # Gera uma ID aleatória
+                        id =  str(uuid.uuid4()) 
+                        copies_available.append({'ID': id, 'Disponível': True}) # Preciso checar se cada unidade está disponível - ao invés de todas serem True
+                        
                 break
             except ValueError:
                 found_error(error)
 
     # Passando as informações da classe Book para uma variável
-    new_book = Book(id, title, author, publish_year, copies_available, is_loaned)
+    new_book = Book(title, author, publish_year, copies_in_stock, copies_available)
 
     global single_book
     single_book = {
-        'ID': new_book.id,
         'Título': new_book.title,
         'Autor': new_book.author,
         'Ano de Publicação': new_book.publish_year,
-        'Copias em Estoque': new_book.copies_available,
-        'Empréstimos': new_book.is_loaned
+        'Copias em Estoque': new_book.copies_in_stock,
+        'Copias Disponíveis': new_book.copies_available
         }
-    
+    #found_error('missing_user')  I should look if there is a user with this book loaned in case copies_available < copies_in_stock
     return single_book and add_new_book()
 
 def add_new_book():
@@ -101,4 +106,4 @@ def add_new_book():
 
     return books_data
 
-#create_book()
+create_book()
