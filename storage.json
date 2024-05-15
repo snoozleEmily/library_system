@@ -64,26 +64,6 @@
             ]
         },
         {
-            "Título": "Dom Casmurro",
-            "Autor": "Joaquim Maria Machado de Assis",
-            "Ano de Publicação": 1899,
-            "Copias em Estoque": 3,
-            "Copias Disponíveis": [
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                }
-            ]
-        },
-        {
             "Título": "Harry Potter and the Philosopher's Stone",
             "Autor": "J. K. Rowling",
             "Ano de Publicação": 1997,
@@ -102,6 +82,30 @@
                 }
             ],
             "Copias Disponíveis": 3
+        },
+        {
+            "Título": "Dom Casmurro",
+            "Autor": "Joaquim Maria Machado de Assis",
+            "Ano de Publicação": 1899,
+            "Copias em Estoque": [
+                {
+                    "ID": "0ce8b6bb-5410-4e86-bb1f-0ad373fbb1bb",
+                    "Disponível": true
+                },
+                {
+                    "ID": "8959298a-05a6-4481-8c0a-fb3837244b8d",
+                    "Disponível": true
+                },
+                {
+                    "ID": "0bf6afc7-551f-49ad-a2d0-052c705d6e11",
+                    "Disponível": true
+                },
+                {
+                    "ID": "34a2065a-a71b-4e5e-803e-a8952483eea7",
+                    "Disponível": false
+                }
+            ],
+            "Copias Disponíveis": 4
         }
     ],
     "users": [
@@ -154,7 +158,7 @@
             "Livro Em Posse": ""
         },
         {
-            "Nome": "Gustavo Paulo Carvalho",
+            "Nome": "Gustavo Luís Carvalho",
             "CPF": 10941494141,
             "Contato": 998414181,
             "Livro Em Posse": ""

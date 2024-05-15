@@ -17,11 +17,6 @@ def create_book():
     title = input('Título do livro: ')
     author = input('Autor do livro: ')
     
-    # Variáveis locais para armazenar os valores dos inputs
-    publish_year = None
-    copies_in_stock = None
-    copies_available = None
-
     numeric_input_prompts = [
         ('Ano de publicação do livro', 'publish_year'),
         ('Cópias em Estoque', 'copies_in_stock'),
@@ -35,32 +30,39 @@ def create_book():
             error = 'invalid_value'
 
             try:
-                if attribute == 'publish_year':
-                    publish_year = int(user_input)
+                match attribute:
+                    case 'publish_year':
+                        publish_year = int(user_input)
 
-                    if len(user_input) != 4:
-                        error = 'year_length'
-                        raise ValueError
-                    if int(user_input) > current_year:
-                        error = 'year_current'
-                        raise ValueError
-                    
-                if attribute == 'copies_in_stock':
-                    copies_in_stock = int(user_input) 
-                    
-                if attribute == 'copies_available':
-                    copies_available = int(user_input)
-
-                    if copies_in_stock < copies_available:
-                        error = 'exceeded_book_limit'
-                        raise ValueError
-                    
-                    copies_available = []
-                    for _ in range(copies_in_stock):
-                        # Gera uma ID aleatória
-                        id =  str(uuid.uuid4()) 
-                        copies_available.append({'ID': id, 'Disponível': True}) # Preciso checar se cada unidade está disponível - ao invés de todas serem True
+                        if len(user_input) != 4:
+                            error = 'year_length'
+                            raise ValueError
+                        if int(user_input) > current_year:
+                            error = 'year_current'
+                            raise ValueError
                         
+                    case 'copies_in_stock':
+                        copies_in_stock = int(user_input) 
+                        
+                    case 'copies_available':
+                        copies_available = int(user_input)
+                        copies = copies_available #Guarda o valor de copies_available como integer
+
+                        if copies_in_stock < copies_available:
+                            error = 'exceeded_book_limit'
+                            raise ValueError
+                        
+                        copies_available = []                    
+                        available_count = 0 # Rastreia o número de cópias disponíveis
+                        
+                        for _ in range(copies_in_stock):
+                            is_available = True if available_count < copies else False # Verifica se cada cópia está disponível para empréstimo
+                            id =  str(uuid.uuid4()) # Gera uma ID aleatória
+                            copies_available.append({'ID': id, 'Disponível': is_available})
+                            
+                            # Caso a cópia esteja disponível o available_count conta +1 livro
+                            if is_available:
+                                available_count += 1
                 break
             except ValueError:
                 found_error(error)
