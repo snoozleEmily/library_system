@@ -12,11 +12,6 @@ class User:
         self.info = info
 
 def create_user():
-    # Variáveis locais para armazenar os valores das entradas
-    name = None
-    cpf = None
-    info = None
-
     input_prompts = [
         ('Nome completo do usuário', 'name'),
         ('CPF', 'cpf'),
@@ -63,7 +58,8 @@ def create_user():
     single_user = {
             'Nome': new_user.name,
             'CPF': new_user.cpf,
-            'Contato': new_user.info
+            'Contato': new_user.info,
+            'Livro Em Posse': ''
             }
     
     return single_user and add_new_user()
@@ -73,22 +69,23 @@ def add_new_user():
     print('Adicionar PERMANETEMENTE os seguintes dados?')
     print(single_user)
     print('1.SIM | 2.NÃO')
-    correct_input = input()
+    correct_input = input()   
 
-    if correct_input not in ['1', '2']:
-        found_error('invalid_value')
-        correct_input = input('1.SIM | 2.NÃO')
-    
-    # Salva os dados do novo usuário 
-    if correct_input == '1': 
-        data['users'].append(single_user) 
-        save_data(data)
-        print('Usuário Registrado Com Sucesso!')
+    match correct_input:                
+        # Salva os dados do novo usuário 
+        case '1': 
+            data['users'].append(single_user) 
+            save_data(data)
+            print('Usuário Registrado Com Sucesso!')
 
-    # Corrigi os dados do novo usuário 
-    if correct_input == '2':
-        create_user()
+        # Corrigi os dados do novo usuário 
+        case '2':
+            create_user()
+
+        case _:
+            found_error('invalid_value')
+            correct_input = input('1.SIM | 2.NÃO')
 
     return data
 
-#create_user()
+create_user()

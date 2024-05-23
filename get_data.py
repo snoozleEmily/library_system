@@ -47,17 +47,17 @@ def ask_user_input():
         print('2) CPF')
         # Guarda o input na variável user_search
         user_search = input('') 
-
-        if user_search == '1':
-            user = get_user_data('Nome')
-            return user
-        elif user_search == '2':
-            user = get_user_data('CPF')
-            return user
-        else:
-            # Se o input não for '1' ou '2', exibe um erro
-            found_error('invalid_value') 
-            ask_user_input()
+        match user_search:
+            case '1':
+                user = get_user_data('Nome')
+                return user
+            case '2':
+                user = get_user_data('CPF')
+                return user
+            case _:
+                # Se o input não for '1' ou '2', exibe um erro
+                found_error('invalid_value') 
+                ask_user_input()
         
    
 def get_book_data(attribute):
@@ -83,20 +83,20 @@ def ask_book_input():
         print('3) Autor')
         # Guarda o input na variável book_search
         book_search = input('')
+        match book_search:
+            case '1':
+                book = get_book_data('Título')
+                return book
+            case '2':
+                book = get_book_data('ID')
+                return book
+            case '3':
+                book = get_book_data('Autor')
+                return book    
+            case _:
+                # Se o input não for '1', '2' ou '3', exibe um erro
+                found_error('invalid_value') 
+                ask_book_input()        
 
-        if book_search == '1':
-            book = get_book_data('Título')
-            return book
-        elif book_search == '2':
-            book = get_book_data('ID')
-            return book
-        elif book_search == '3':
-            book = get_book_data('Autor')
-            return book    
-        else:
-            # Se o input não for '1', '2' ou '3', exibe um erro
-            found_error('invalid_value') 
-            ask_book_input()        
-
-#ask_user_input()
-#ask_book_input()
+ask_user_input()
+ask_book_input()
