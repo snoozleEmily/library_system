@@ -22,7 +22,8 @@ error_messages = {
     # Itens Indisponíveis
     'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Faça uma pausa, pegue um café e tente novamente amanhã. Quem sabe esse livro não decide esperar por você na prateleira da próxima vez!',
     'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
-    'missing_user': '[ERRO] Segundo esses números, algum exemplar já foi emprestado. Verifiquei aqui que não temos nenhum usuário cadastrado com esse livro em sua posse. Por favor, cadastre-o agora para evitar problemas.'
+    'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, mas olhei em todos os cantos, debaixo dos livros e até dentro de outras histórias, mas não encontrei nenhum usuário com esse livro. Por favor, registre-o agora para evitar problemas.'
+
 }
 
 def found_error(entry_type):

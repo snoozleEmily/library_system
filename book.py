@@ -87,11 +87,7 @@ def add_new_book():
 
     space()
     print('1.SIM | 2.NÃO')
-    correct_input = input()  
-    if correct_input not in ['1', '2']:
-        print('[ERRO] Escolha uma das opções disponíveis.')
-        correct_input = input('1.SIM | 2.NÃO')
-
+    correct_input = input()    
     match correct_input:         
         case '1':
             # Salva os dados do novo livro permanentemente no armazenamento
@@ -107,16 +103,23 @@ def add_new_book():
 
             # Verifica se a quantidade de livros em estoque é a mesma dos disponíveis
             if _single_book['Copias em Estoque'] == avaliable_copies:
-                print('A quantidade é a mesma!') # O que quero fazer aqui? Só ter um pass ou continue?
+                pass
             else:
                 found_user = False
                 for user in data['users']:
                     try:
                         if user['Livro Em Posse']['Título'] == _single_book['Título']:
-                           print('We have an user with this book!') #What do I want to do here?
-                           found_user = True             
-
-                    except (AttributeError, KeyError, TypeError):
+                           print('Encontrei alguém com uma cópia desse livro já emprestada, mas ainda não foi resgistrado. Deseja atualizar o usuário?')
+                           update_choice = input('1.SIM | 2.NÃO')
+                           space()
+                           match update_choice:
+                                case '1':
+                                    borrow_book_id = _single_book['Copias em Estoque']['ID']
+                                    print(borrow_book_id)
+                                    found_user = True
+                                case '2':
+                                   break #Skipa todo o código restante e finaliza
+                    except (AttributeError, KeyError, TypeError): #Pq tô usando isso aqui?
                         pass   
 
                 if not found_user:
@@ -125,6 +128,10 @@ def add_new_book():
         case '2':
             # Corrigi os dados do novo livro
             create_book()
+        case _ :
+            print('[ERRO] Escolha uma das opções disponíveis.')
+            correct_input = input('1.SIM | 2.NÃO')
+            space()
 
     return data
 
