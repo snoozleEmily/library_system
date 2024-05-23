@@ -81,10 +81,10 @@ def add_new_user():
         # Corrigi os dados do novo usuário 
         case '2':
             create_user()
-
         case _:
             found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
+            space()
 
     return data
 

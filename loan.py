@@ -2,14 +2,12 @@ from dash import *
 from error import *
 from get_data import *
 from fetch_data import *
-#from devolution import *
 
 def loan_book():
     user = ask_user_input()
     book = ask_book_input()
 
-    def make_loan(user,book):
-        
+    def make_loan(user,book):        
         # Verifica se o usuário já está com um livro emprestado
         for loaned_book in data['books']:
             if loaned_book['Número de Identificação'] == book['Número de Identificação']:
@@ -34,14 +32,3 @@ def loan_book():
     make_loan(user,book)
 
 #loan_book()
-
-'''    # Verifica se o usuário já está com um livro emprestado
-        if 'borrowed_book' in user and user['borrowed_book'] != '':
-            found_error('unavailable_user')
-            print('Livro: ', user['borrowed_book'])
-            print('Deseja realizar devolução?')
-            print('1) SIM')
-            print('2) NÃO, VOLTAR PARA O MENU')
-
-            #make_devolution() #ISSO AQUI TÁ CERTO?
-'''
