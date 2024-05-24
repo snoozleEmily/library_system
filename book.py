@@ -28,7 +28,7 @@ def create_book():
     for prompt, attribute in numeric_input_prompts:
         while True:
             type_input = input(f'{prompt}: ')
-            error = 'invalid_value'
+            error = 'invalid_value' # Determina erro padrão
 
             try:
                 match attribute:
@@ -36,9 +36,11 @@ def create_book():
                         publish_year = int(type_input)
 
                         if len(type_input) != 4:
+                            # Levanta um erro caso o input não tenha 4 digitos
                             error = 'year_length'
                             raise ValueError
                         if int(type_input) > current_year:
+                            # Levanta um erro caso o input seja maior do que o ano atual
                             error = 'year_current'
                             raise ValueError
                         
@@ -50,19 +52,24 @@ def create_book():
                         copies = copies_available #Guarda o valor de copies_available como integer
 
                         if copies_in_stock < copies_available:
+                            # Levanta um erro caso o número de cópias disponíveis seja maior do que cópias em estoque
                             error = 'exceeded_book_limit'        
                             raise ValueError
                         
-                        copies_available = []                    
+                        copies_available = []         
                         available_count = 0 # Rastreia o número de cópias disponíveis
                         
                         for _ in range(copies_in_stock):
-                            is_available = True if available_count < copies else False # Verifica se cada cópia está disponível para empréstimo
-                            id =  str(uuid.uuid4()) # Gera uma ID aleatória
+                            # Verifica se cada cópia está disponível para empréstimo
+                            is_available = True if available_count < copies else False
+
+                            # Gera uma ID aleatória para a cópia e a adiciona à lista de livros disponíveis
+                            id =  str(uuid.uuid4()) 
                             copies_available.append({'ID': id, 'Disponível': is_available})
-                            # Caso a cópia esteja disponível o available_count conta +1 livro
-                            if is_available:
-                                available_count += 1                                                                          
+                            
+                            # Incrementa o contador de cópias disponíveis se a cópia estiver disponível para empréstimo
+                            if is_available:                                
+                                available_count += 1                                                                
                 break
             except ValueError:
                 found_error(error)

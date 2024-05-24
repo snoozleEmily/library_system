@@ -30,19 +30,6 @@ for individual_book in all_books:
     print(individual_book)
     dash()
 
-'''
-# Loop for users information
-for user in data['users']:
-    user_name = user.get('Nome', '')
-    user_cpf = user.get('CPF', '')
-    user_contact = user.get('Contato', '')
-    user_book_title = user.get('Livro Em Posse', {}).get('Título', '')
-    user_book_id = user.get('Livro Em Posse', {}).get('ID', '')
-
-    individual_user = f'Nome: {user_name} - CPF: {user_cpf} - Contato: {user_contact} - Livro Em Posse: {user_book_title} (ID: {user_book_id})'
-    all_users.append(individual_user)
-'''
-
 #Livros disponíveis
 #Livros cadastrados
 
