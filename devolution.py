@@ -8,12 +8,15 @@ def make_devolution():
     book = user['Livro Em Posse']['ID']
     
     for loaned_book in data['books']:
-        if loaned_book['ID'] == book:
-            # Atualiza o número de copias disponíveis
-            loaned_book['Copias Disponíveis'] += 1
-            print('Livro: ')
-            print(loaned_book)
-            break
+        try:
+            if loaned_book['ID'] == book:
+                # Atualiza o número de copias disponíveis
+                loaned_book['Copias Disponíveis'] += 1
+                print('Livro: ')
+                print(loaned_book)
+                break
+        except KeyError:
+            pass
             
     # Atualiza o usuário    
     user['Livro Em Posse'] = ''
@@ -23,4 +26,4 @@ def make_devolution():
     # Salva os novos dados
     save_data(data) 
 
-#make_devolution()
+make_devolution()

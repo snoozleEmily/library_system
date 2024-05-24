@@ -106,6 +106,34 @@
                 }
             ],
             "Copias Disponíveis": 4
+        },
+        {
+            "Título": "1984",
+            "Autor": "1",
+            "Ano de Publicação": 1111,
+            "Copias em Estoque": 2,
+            "Copias Disponíveis": [
+                {
+                    "ID": "a796b985-b302-43d6-ae74-051ad1ded010",
+                    "Disponível": true
+                },
+                {
+                    "ID": "7ff4eac9-b6db-459c-b168-7196ad10a873",
+                    "Disponível": false
+                }
+            ]
+        },
+        {
+            "Título": "1984",
+            "Autor": "1",
+            "Ano de Publicação": 1111,
+            "Copias em Estoque": 1,
+            "Copias Disponíveis": [
+                {
+                    "ID": "8a7c3dbd-4653-40b5-81f6-74f8fa82c0bd",
+                    "Disponível": false
+                }
+            ]
         }
     ],
     "users": [

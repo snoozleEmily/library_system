@@ -12,7 +12,8 @@ class Book:
         self.copies_in_stock = copies_in_stock        
         self.copies_available = copies_available
 
-_single_book = {} #Declarando variável global     
+ # Declarando variável global
+_single_book = {}   
 def create_book():
     title = input('Título do livro: ')
     author = input('Autor do livro: ')
