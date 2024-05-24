@@ -23,35 +23,36 @@ def create_user():
     for prompt, attribute in input_prompts:
         while True:
             user_input = input(f'{prompt}: ')
-            error = 'invalid_value'
+            error = 'invalid_value' # Determina erro padrão
 
             def number_verify():
                 # Levanta um erro caso o input não seja numérico
                 if not user_input.isdigit():
                     raise ValueError
             try:
-                if attribute == 'name':
-                    if user_input == '' or user_input.isdigit():
-                        # Levanta um erro caso o input seja uma string vazia ou contenha apenas dígitos
-                        error = 'number_length'
-                        raise ValueError
-                    name = user_input
+                match attribute:
+                    case 'name':
+                        if user_input == '' or user_input.isdigit():
+                            # Levanta um erro caso o input seja uma string vazia ou contenha apenas dígitos
+                            error = 'number_length'
+                            raise ValueError
+                        name = user_input
 
-                elif attribute == 'cpf':
-                    number_verify()
-                    if len(user_input) != 11:
-                        # Levanta um erro caso o input não contenha 11 dígitos
-                        error = 'cpf_length'
-                        raise ValueError
-                    cpf = user_input
+                    case 'cpf':
+                        number_verify()
+                        if len(user_input) != 11:
+                            # Levanta um erro caso o input não contenha 11 dígitos
+                            error = 'cpf_length'
+                            raise ValueError
+                        cpf = user_input
 
-                elif attribute == 'info':
-                    number_verify()
-                    if len(user_input) != 9:
-                         # Levanta um erro caso o input não contenha 9 dígitos
-                        error = 'info_length'
-                        raise ValueError
-                    info = user_input
+                    case 'info':
+                        number_verify()
+                        if len(user_input) != 9:
+                            # Levanta um erro caso o input não contenha 9 dígitos
+                            error = 'info_length'
+                            raise ValueError
+                        info = user_input
                 break
             
             except ValueError:

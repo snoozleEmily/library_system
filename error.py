@@ -1,7 +1,8 @@
 from dash import *
 import datetime
 
-current_year = datetime.datetime.now().year # Obter o ano atual
+# Obtem o ano atual
+current_year = datetime.datetime.now().year 
 
 error_messages = {
     'return_menu': '[ERRO] Ixi... Me perdi aqui. Vamos precisar voltar para o menu.',

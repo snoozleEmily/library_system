@@ -15,6 +15,7 @@ def make_devolution():
                 print('Livro: ')
                 print(loaned_book)
                 break
+        # Ignora erro de chave ausente no dicionário
         except KeyError:
             pass
             

@@ -30,5 +30,3 @@ def loan_book():
         save_data(data)
 
     make_loan(user,book)
-
-#loan_book
