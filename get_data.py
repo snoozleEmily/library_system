@@ -97,6 +97,3 @@ def ask_book_input():
                 # Se o input não for '1', '2' ou '3', exibe um erro
                 found_error('invalid_value') 
                 ask_book_input()        
-
-ask_user_input()
-ask_book_input()

@@ -2,6 +2,7 @@ from dash import *
 from fetch_data import *
 from error import *
 
+ # Declarando variável global
 single_user = {}
 
 #Cadastro de Usuários: nome, número de identificação (CPF), contato e livro em posse
@@ -24,30 +25,35 @@ def create_user():
             user_input = input(f'{prompt}: ')
             error = 'invalid_value'
 
-            def is_digit():
-                if not user_input.isdigit(): #ADD comentários aquiiiiii
+            def number_verify():
+                # Levanta um erro caso o input não seja numérico
+                if not user_input.isdigit():
                     raise ValueError
             try:
                 if attribute == 'name':
                     if user_input == '' or user_input.isdigit():
+                        # Levanta um erro caso o input seja uma string vazia ou contenha apenas dígitos
                         error = 'number_length'
                         raise ValueError
                     name = user_input
 
                 elif attribute == 'cpf':
-                    is_digit()
+                    number_verify()
                     if len(user_input) != 11:
+                        # Levanta um erro caso o input não contenha 11 dígitos
                         error = 'cpf_length'
                         raise ValueError
                     cpf = user_input
 
                 elif attribute == 'info':
-                    is_digit()
+                    number_verify()
                     if len(user_input) != 9:
+                         # Levanta um erro caso o input não contenha 9 dígitos
                         error = 'info_length'
                         raise ValueError
                     info = user_input
                 break
+            
             except ValueError:
                 found_error(error)
 
@@ -71,21 +77,18 @@ def add_new_user():
     print('1.SIM | 2.NÃO')
     correct_input = input()   
 
-    match correct_input:                
-        # Salva os dados do novo usuário 
+    match correct_input:             
         case '1': 
+            # Salva os dados do novo usuário 
             data['users'].append(single_user) 
             save_data(data)
-            print('Usuário Registrado Com Sucesso!')
-
-        # Corrigi os dados do novo usuário 
+            print('Usuário Registrado Com Sucesso!')        
         case '2':
+            # Corrigi os dados do novo usuário 
             create_user()
 
         case _:
+            # Caso o input não seja 1 ou 2 retorna um erro e requere o input novamente
             found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
-
     return data
-
-create_user()
