@@ -33,15 +33,4 @@ def loan_book():
 
     make_loan(user,book)
 
-#loan_book()
-
-'''    # Verifica se o usuário já está com um livro emprestado
-        if 'borrowed_book' in user and user['borrowed_book'] != '':
-            found_error('unavailable_user')
-            print('Livro: ', user['borrowed_book'])
-            print('Deseja realizar devolução?')
-            print('1) SIM')
-            print('2) NÃO, VOLTAR PARA O MENU')
-
-            #make_devolution() #ISSO AQUI TÁ CERTO?
-'''
+#loan_book
