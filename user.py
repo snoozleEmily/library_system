@@ -5,7 +5,7 @@ from error import *
  # Declarando variável global
 single_user = {}
 
-#Cadastro de Usuários: nome, número de identificação (CPF), contato e livro em posse
+#Cadastro de Usuários: nome, número de identificação (CPF) e contato 
 class User:
     def __init__(self, name, cpf, info):
         self.name = name

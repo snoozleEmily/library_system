@@ -49,27 +49,27 @@ def create_book():
                         
                     case 'copies_available':
                         copies_available = int(type_input)
-                        copies = copies_available #Guarda o valor de copies_available como integer
+                        stock_amount = copies_in_stock #Guarda o valor de copies_in_stock como integer
 
-                        if copies_in_stock < copies_available:
+                        if stock_amount < copies_available:
                             # Levanta um erro caso o número de cópias disponíveis seja maior do que cópias em estoque
                             error = 'exceeded_book_limit'        
-                            raise ValueError
+                            raise ValueError                    
                         
-                        copies_available = []         
-                        available_count = 0 # Rastreia o número de cópias disponíveis
+                        copies_in_stock = []         
+                        availability_count = 0 # Rastreia o número de cópias disponíveis
                         
-                        for _ in range(copies_in_stock):
+                        for _ in range(stock_amount):
                             # Verifica se cada cópia está disponível para empréstimo
-                            is_available = True if available_count < copies else False
+                            is_available = True if availability_count != copies_available else False
 
                             # Gera uma ID aleatória para a cópia e a adiciona à lista de livros disponíveis
-                            id =  str(uuid.uuid4()) 
-                            copies_available.append({'ID': id, 'Disponível': is_available})
+                            copy_id =  str(uuid.uuid4()) 
+                            copies_in_stock.append({'ID': copy_id, 'Disponível': is_available})
                             
                             # Incrementa o contador de cópias disponíveis se a cópia estiver disponível para empréstimo
                             if is_available:                                
-                                available_count += 1                                                                
+                                availability_count += 1                                                                
                 break
             except ValueError:
                 found_error(error)
@@ -102,7 +102,7 @@ def add_new_book():
             data['books'].append(_single_book) 
             save_data(data)
             print('Livro Registrado Com Sucesso!')
-
+            '''
             # Retorna quantas copias estão disponíveis 
             for copy in _single_book['Copias Disponíveis']:
                 avaliable_copies = 0
@@ -132,7 +132,7 @@ def add_new_book():
 
                 if not found_user:
                     found_error('missing_user')
-                    
+             '''       
         case '2':
             # Corrigi os dados do novo livro
             create_book()
