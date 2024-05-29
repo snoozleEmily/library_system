@@ -49,27 +49,27 @@ def create_book():
                         
                     case 'copies_available':
                         copies_available = int(type_input)
-                        copies = copies_available #Guarda o valor de copies_available como integer
+                        stock_amount = copies_in_stock #Guarda o valor de copies_in_stock como integer
 
-                        if copies_in_stock < copies_available:
+                        if stock_amount < copies_available:
                             # Levanta um erro caso o número de cópias disponíveis seja maior do que cópias em estoque
                             error = 'exceeded_book_limit'        
-                            raise ValueError
+                            raise ValueError                    
                         
-                        copies_available = []         
-                        available_count = 0 # Rastreia o número de cópias disponíveis
+                        copies_in_stock = []         
+                        availability_count = 0 # Rastreia o número de cópias disponíveis
                         
-                        for _ in range(copies_in_stock):
+                        for _ in range(stock_amount):
                             # Verifica se cada cópia está disponível para empréstimo
-                            is_available = True if available_count < copies else False
+                            is_available = True if availability_count != copies_available else False
 
                             # Gera uma ID aleatória para a cópia e a adiciona à lista de livros disponíveis
-                            id =  str(uuid.uuid4()) 
-                            copies_available.append({'ID': id, 'Disponível': is_available})
+                            copy_id =  str(uuid.uuid4()) 
+                            copies_in_stock.append({'ID': copy_id, 'Disponível': is_available})
                             
                             # Incrementa o contador de cópias disponíveis se a cópia estiver disponível para empréstimo
                             if is_available:                                
-                                available_count += 1                                                                
+                                availability_count += 1                                                                
                 break
             except ValueError:
                 found_error(error)
@@ -101,7 +101,38 @@ def add_new_book():
             # Salva os dados do novo livro permanentemente no armazenamento
             data['books'].append(_single_book) 
             save_data(data)
-            print('Livro Registrado Com Sucesso!')                    
+            print('Livro Registrado Com Sucesso!')
+            '''
+            # Retorna quantas copias estão disponíveis 
+            for copy in _single_book['Copias Disponíveis']:
+                avaliable_copies = 0
+                if copy['Disponível'] == True:
+                    avaliable_copies += 1            
+
+            # Verifica se a quantidade de livros em estoque é a mesma dos disponíveis
+            if _single_book['Copias em Estoque'] == avaliable_copies:
+                pass
+            else:
+                found_user = False
+                for user in data['users']:
+                    try:
+                        if user['Livro Em Posse']['Título'] == _single_book['Título']:
+                           print('Encontrei alguém com uma cópia desse livro já emprestada, mas ainda não foi resgistrado. Deseja atualizar o usuário?')
+                           update_choice = input('1.SIM | 2.NÃO')
+                           space()
+                           match update_choice:
+                                case '1':
+                                    borrow_book_id = _single_book['Copias em Estoque']['ID']
+                                    print(borrow_book_id)
+                                    found_user = True
+                                case '2':
+                                   break #Skipa todo o código restante e finaliza
+                    except (AttributeError, KeyError, TypeError): #Pq tô usando isso aqui?
+                        pass   
+
+                if not found_user:
+                    found_error('missing_user')
+             '''       
         case '2':
             # Corrigi os dados do novo livro
             create_book()
