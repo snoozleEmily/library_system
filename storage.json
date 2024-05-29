@@ -1,68 +1,5 @@
-{
+﻿{
     "books": [
-        {
-            "ID": "91a438c3-9912-4144-99e2-c900fc215dd0",
-            "Título": "O pequeno príncipe",
-            "Autor": "Antoine de Saint-Exupéry",
-            "Ano de Publicação": 1943,
-            "Copias em Estoque": 3,
-            "Copias Disponíveis": [
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                }
-            ]
-        },
-        {
-            "ID": "a6290144-c3b2-4db5-8741-a732304e14bb",
-            "Título": "Orgulho e Preconceito",
-            "Autor": "Jane Austen",
-            "Ano de Publicação": 1813,
-            "Copias em Estoque": 3,
-            "Copias Disponíveis": [
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                }
-            ]
-        },
-        {
-            "ID": "cfbf9-7269-4933-8714-6e07205ec2f7",
-            "Título": "1984",
-            "Autor": "George Orwell",
-            "Ano de Publicação": 1949,
-            "Copias em Estoque": 3,
-            "Copias Disponíveis": [
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                },
-                {
-                    "ID": "",
-                    "Disponível": true
-                }
-            ]
-        },
         {
             "Título": "Harry Potter and the Philosopher's Stone",
             "Autor": "J. K. Rowling",
@@ -105,35 +42,107 @@
                     "Disponível": false
                 }
             ],
-            "Copias Disponíveis": 4
+            "Copias Disponíveis": 3
         },
         {
-            "Título": "1984",
-            "Autor": "1",
-            "Ano de Publicação": 1111,
-            "Copias em Estoque": 2,
-            "Copias Disponíveis": [
+            "Título": "O pequeno príncipe",
+            "Autor": "Antoine de Saint-Exupéry",
+            "Ano de Publicação": 1943,
+            "Copias em Estoque": [
                 {
-                    "ID": "a796b985-b302-43d6-ae74-051ad1ded010",
+                    "ID": "a77b5f9b-508d-4b7c-a46b-af6624d644ae",
                     "Disponível": true
                 },
                 {
-                    "ID": "7ff4eac9-b6db-459c-b168-7196ad10a873",
-                    "Disponível": false
+                    "ID": "87b0dd5f-bac9-40dc-ada6-143dcf6f1f41",
+                    "Disponível": true
+                },
+                {
+                    "ID": "f487c0cf-fb41-4d95-88c1-fa01c90e2a1a",
+                    "Disponível": true
                 }
-            ]
+            ],
+            "Copias Disponíveis": 3
+        },
+        {
+            "Título": "O pequeno príncipe",
+            "Autor": "Antoine de Saint-Exupéry",
+            "Ano de Publicação": 1943,
+            "Copias em Estoque": [
+                {
+                    "ID": "4da53158-a6f0-4529-a8b0-7019a413e911",
+                    "Disponível": true
+                },
+                {
+                    "ID": "2221bd18-3fc3-4ffb-a9ef-c2f67eda4f9e",
+                    "Disponível": true
+                },
+                {
+                    "ID": "0a0a1a2e-66cc-4db9-9a88-04965169508b",
+                    "Disponível": true
+                }
+            ],
+            "Copias Disponíveis": 3
+        },
+        {
+            "Título": "Orgulho e Preconceito",
+            "Autor": "Jane Austen",
+            "Ano de Publicação": 1813,
+            "Copias em Estoque": [
+                {
+                    "ID": "d541fb48-9e2f-452f-91aa-0d104afc3b4d",
+                    "Disponível": true
+                },
+                {
+                    "ID": "0f1edce9-a4df-4429-a6e8-200ff2b3a8e1",
+                    "Disponível": true
+                },
+                {
+                    "ID": "55c2f2f8-acab-4268-9ca6-b1914dcd38c8",
+                    "Disponível": true
+                }
+            ],
+            "Copias Disponíveis": 3
         },
         {
             "Título": "1984",
-            "Autor": "1",
-            "Ano de Publicação": 1111,
-            "Copias em Estoque": 1,
-            "Copias Disponíveis": [
+            "Autor": "George Orwell",
+            "Ano de Publicação": 1949,
+            "Copias em Estoque": [
                 {
-                    "ID": "8a7c3dbd-4653-40b5-81f6-74f8fa82c0bd",
+                    "ID": "c82c80b2-c2ca-4eb9-aab7-ad2e682936c4",
+                    "Disponível": true
+                },
+                {
+                    "ID": "fc1258c9-b417-4024-a386-cbc707d800ce",
+                    "Disponível": true
+                },
+                {
+                    "ID": "b6811fae-a53c-4732-8f00-e05f31dcae1c",
+                    "Disponível": true
+                },
+                {
+                    "ID": "e9ce0277-6df8-4a94-9e17-9ad5f8876c28",
                     "Disponível": false
                 }
-            ]
+            ],
+            "Copias Disponíveis": 3
+        },
+        {
+            "Título": "Don Quixote",
+            "Autor": "Miguel de Cervantes",
+            "Ano de Publicação": 1605,
+            "Copias em Estoque": [
+                {
+                    "ID": "d406ec44-518e-4994-b85b-4ea0cdade4e8",
+                    "Disponível": true
+                },
+                {
+                    "ID": "035a0877-e67a-4c56-9a21-fba0c23e4d8d",
+                    "Disponível": true
+                }
+            ],
+            "Copias Disponíveis": 2
         }
     ],
     "users": [
@@ -152,7 +161,7 @@
             "Contato": 999971121,
             "Livro Em Posse": {
                 "Título": "1984",
-                "ID": "cfbf9-7269-4933-8714-6e07205ec2f7"
+                "ID": "e9ce0277-6df8-4a94-9e17-9ad5f8876c28"
             }
         },
         {
