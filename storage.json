@@ -26,23 +26,11 @@
             "Ano de Publicação": 1899,
             "Copias em Estoque": [
                 {
-                    "ID": "0ce8b6bb-5410-4e86-bb1f-0ad373fbb1bb",
-                    "Disponível": true
-                },
-                {
-                    "ID": "8959298a-05a6-4481-8c0a-fb3837244b8d",
-                    "Disponível": true
-                },
-                {
-                    "ID": "0bf6afc7-551f-49ad-a2d0-052c705d6e11",
-                    "Disponível": true
-                },
-                {
                     "ID": "34a2065a-a71b-4e5e-803e-a8952483eea7",
                     "Disponível": false
                 }
             ],
-            "Copias Disponíveis": 3
+            "Copias Disponíveis": 0
         },
         {
             "Título": "O pequeno príncipe",
@@ -59,26 +47,6 @@
                 },
                 {
                     "ID": "f487c0cf-fb41-4d95-88c1-fa01c90e2a1a",
-                    "Disponível": true
-                }
-            ],
-            "Copias Disponíveis": 3
-        },
-        {
-            "Título": "O pequeno príncipe",
-            "Autor": "Antoine de Saint-Exupéry",
-            "Ano de Publicação": 1943,
-            "Copias em Estoque": [
-                {
-                    "ID": "4da53158-a6f0-4529-a8b0-7019a413e911",
-                    "Disponível": true
-                },
-                {
-                    "ID": "2221bd18-3fc3-4ffb-a9ef-c2f67eda4f9e",
-                    "Disponível": true
-                },
-                {
-                    "ID": "0a0a1a2e-66cc-4db9-9a88-04965169508b",
                     "Disponível": true
                 }
             ],
