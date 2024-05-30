@@ -36,33 +36,35 @@ def all_books_report():
 
         # Conta o número de cópias em estoque
         copies_stock = 0
-        for _ in book_stock: 
+        for copy in book_stock: 
           copies_stock += 1   
 
         # Formata as informações de cada livro e o adiciona à lista de todos os livros
         individual_book = f'//Livro: {book_title} | Autor(a): {book_author} | Ano De Publicação: {book_year} | Copias Em Estoque: {copies_stock} | Copias Disponíveis Para Empréstimo: {book_available} '
         all_books.append(individual_book)
 
-        # Livros disponíveis
-        def available_books_report():
-            for copy in book_stock:
-                if copy['Disponível'] == True:
-                    print(copy['Disponível']) # I can't access this, why???
+        # Mostra somente os livros disponíveis
+        def available_books_report(): #ONDE VOU CHAMAR ISSO? PASSO COMO PARÂMETRO?
+            print(f'Em média existem {copies} per book title.')
+            if copy['Disponível']:
+                print(f'Existem {book_available} livros disponíveis em estoque.')                
+                dash()
+                print(individual_book)
+                dash()
+            else:
+                print(f'Existem {book_available} livros indisponíveis em estoque.')
+        #available_books_report()        
 
     # Imprime a lista de todos os livros    
     for individual_book in all_books:
         dash()
-        print(individual_book)
-        dash()   
-
-    # Livros cadastrados
-    def stock_books_report():
-        pass
+        #print(individual_book)
+        dash()       
 
 all_books_report()
 
 # Relatório Geral
 def generate_general_report():
-    all_books_report()
+    all_books_report() # Reporte de Livros cadastrados
     all_users_report()
 
