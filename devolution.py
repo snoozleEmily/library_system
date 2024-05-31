@@ -25,6 +25,4 @@ def make_devolution():
     space()
     print('Devolução feita com sucesso!')
     # Salva os novos dados
-    save_data(data) 
-
-make_devolution()
+    save_data(data)

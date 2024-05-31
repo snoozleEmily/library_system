@@ -1,15 +1,16 @@
 from dash import *
 from fetch_data import *
 
-# Declarando variáveis para cada livro/usuário
+# Variáveis para armazenar informações de um único livro/usuário
 individual_book = ''
 individual_user = ''
 
-# Declarando listas para todos livros/usuários
+# Listas para armazenar informações de todos os livros/usuários
 all_books = []
 all_users = []
 
 def all_users_report():
+    # Percorre todos os usuários de storage.json
     for user in data['users']:
         user_name = user['Nome']
         user_id = user['CPF']
@@ -17,8 +18,12 @@ def all_users_report():
         user_loan = user['Livro Em Posse']        
 
         # Formata as informações de cada usuário e o adiciona à lista de todos os usuários
-        individual_user = f'//Nome: {user_name} | CPF: {user_id} | Contato: {user_info} | Livro Em Posse: {user_loan} '
+        individual_user = f'//Nome: {user_name} | CPF: {user_id} | Contato: {user_info} | Livro Em Posse: {'Nenhum' if user_loan is '' else user_loan} '
         all_users.append(individual_user)
+
+    dash()    
+    print('REPORTE COMPLETO DOS USUÁRIOS')
+    dash()
 
     # Imprime a lista de todos os usuários    
     for individual_user in all_users:
@@ -27,6 +32,11 @@ def all_users_report():
         dash()
 
 def all_books_report():
+    unavailable_count = 0  # Contador de livros indisponíveis (emprestados)
+    quantity_of_titles_stock = 0  # Quantidade total de títulos em estoque | e.g. Título = Orgulho e Preconceito
+    sum_of_all_copies = 0  # Soma total de todas as cópias em estoque | e.g. Cópias/Exemplares = lista com ID e dispónibilidade(booleano) 
+
+    # Percorre todos os livros de storage.json
     for book in data['books']:
         book_title = book['Título']
         book_author = book['Autor']
@@ -37,34 +47,35 @@ def all_books_report():
         # Conta o número de cópias em estoque
         copies_stock = 0
         for copy in book_stock: 
-          copies_stock += 1   
+            copies_stock += 1
+            # Verifica a quantidade de livros emprestados
+        if copy['Disponível'] == False:
+            unavailable_count += 1            
 
         # Formata as informações de cada livro e o adiciona à lista de todos os livros
         individual_book = f'//Livro: {book_title} | Autor(a): {book_author} | Ano De Publicação: {book_year} | Copias Em Estoque: {copies_stock} | Copias Disponíveis Para Empréstimo: {book_available} '
-        all_books.append(individual_book)
+        all_books.append(individual_book)    
 
-        # Mostra somente os livros disponíveis
-        def available_books_report(): #ONDE VOU CHAMAR ISSO? PASSO COMO PARÂMETRO?
-            print(f'Em média existem {copies} per book title.')
-            if copy['Disponível']:
-                print(f'Existem {book_available} livros disponíveis em estoque.')                
-                dash()
-                print(individual_book)
-                dash()
-            else:
-                print(f'Existem {book_available} livros indisponíveis em estoque.')
-        #available_books_report()        
+        # Conta a quantidade de livros em estoque
+        quantity_of_titles_stock = len(data['books'])
+        sum_of_all_copies += copies_stock 
+    
+    # Imprime a quantidade total de livros em estoque
+    dash()    
+    print('REPORTE COMPLETO DOS LIVROS')
+    dash()
+    print(f'Há um total de {quantity_of_titles_stock} títulos e {sum_of_all_copies} exemplares em estoque')
+
+    # Imprime a quantidade de livros emprestados e a média de cópias emprstadas
+    if unavailable_count != 0:
+        copies_mean = sum_of_all_copies/quantity_of_titles_stock # Média de examplares emrpestados
+        print(f'Há {unavailable_count} livro(s) emprestado(s), com uma média de {copies_mean:.1f} cópia(s) por título')                       
+        space()
 
     # Imprime a lista de todos os livros    
-    for individual_book in all_books:
+    for individual_book in all_books:        
+        print(individual_book)
         dash()
-        #print(individual_book)
-        dash()       
-
-all_books_report()
-
-# Relatório Geral
-def generate_general_report():
-    all_books_report() # Reporte de Livros cadastrados
-    all_users_report()
-
+    
+    space()
+    space()
