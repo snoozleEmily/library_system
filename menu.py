@@ -1,6 +1,7 @@
 from dash import *
 
 def header():
+    dash()
     print('Sistema de Gerenciamento Bibliotecário')
     dash()
     print('--> Menu')
