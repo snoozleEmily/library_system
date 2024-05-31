@@ -30,7 +30,8 @@ while True:
             ask_book_input()
         case '6':
             # Gera um relatório
-            reports_menu()
+            all_users_report()
+            all_books_report()
         case '7':
             # Finaliza o programa
             print('Sessão Encerrada. Até mais!')

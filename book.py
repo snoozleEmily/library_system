@@ -142,5 +142,3 @@ def add_new_book():
             space()
 
     return data
-
-create_book()
