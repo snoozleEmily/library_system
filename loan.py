@@ -2,7 +2,6 @@ from dash import *
 from error import *
 from get_data import *
 from fetch_data import *
-#from devolution import *
 
 def loan_book():
     user = ask_user_input()

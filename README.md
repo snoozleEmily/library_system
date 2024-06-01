@@ -2,9 +2,11 @@
 
 ## Introduction
 
-This repository was made as an University project. It is a library management system developed to help libraries organize their collections and manage book loans effectively. 
+This repository was created as a university project. It is a library management system designed to help libraries organize their collections and manage book loans effectively.
 
-The code includes comments in Portuguese for clarity with the educational context, since the University's course is conducted in this language .
+The code includes comments in Portuguese to provide clarity within the educational context, as the university course is conducted in this language.
+
+For educational purposes, the use of external libraries was avoided to ensure a deeper understanding of working with vanilla Python. However, the `uuid` and `datetime` libraries were used because they do not significantly impact the core functionalities of the code like other libraries might.
 
 ## Disclaimer
 
@@ -19,13 +21,13 @@ To use this library management system, follow these steps:
 3. Navigate to the project directory.
 4. Run the main Python file to start the system.
 
-## Requirements
+## Prerequisites
 
-Please refer to the [requirements.txt](./docs/requirements.md) file for a detailed list of the pre-requirements made by the professors.
+Please refer to the [prerequisites.md](./docs/prerequisites.md) file for a detailed list of the pre-requirements made by the professors.
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+Contributions are welcome! If you find any issues, have suggestions for improvements, or simply want to experiment with the code, please open an issue or submit a pull request.
 
 ## License
 
