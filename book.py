@@ -101,38 +101,7 @@ def add_new_book():
             # Salva os dados do novo livro permanentemente no armazenamento
             all_books_and_users_data['books'].append(_single_book) 
             save_data(all_books_and_users_data)
-            print('Livro Registrado Com Sucesso!')
-            '''
-            # Retorna quantas copias estão disponíveis 
-            for copy in _single_book['Copias Disponíveis']:
-                avaliable_copies = 0
-                if copy['Disponível'] == True:
-                    avaliable_copies += 1            
-
-            # Verifica se a quantidade de livros em estoque é a mesma dos disponíveis
-            if _single_book['Copias em Estoque'] == avaliable_copies:
-                pass
-            else:
-                found_user = False
-                for user in data['users']:
-                    try:
-                        if user['Livro Em Posse']['Título'] == _single_book['Título']:
-                           print('Encontrei alguém com uma cópia desse livro já emprestada, mas ainda não foi resgistrado. Deseja atualizar o usuário?')
-                           update_choice = input('1.SIM | 2.NÃO')
-                           space()
-                           match update_choice:
-                                case '1':
-                                    borrow_book_id = _single_book['Copias em Estoque']['ID']
-                                    print(borrow_book_id)
-                                    found_user = True
-                                case '2':
-                                   break #Skipa todo o código restante e finaliza
-                    except (AttributeError, KeyError, TypeError): #Pq tô usando isso aqui?
-                        pass   
-
-                if not found_user:
-                    found_error('missing_user')
-             '''       
+            print('Livro Registrado Com Sucesso!')                  
         case '2':
             # Corrigi os dados do novo livro
             create_book()
