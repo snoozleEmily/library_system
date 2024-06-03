@@ -11,7 +11,7 @@ all_users = []
 
 def all_users_report():
     # Percorre todos os usuários de storage.json
-    for user in data['users']:
+    for user in all_books_and_users_data['users']:
         user_name = user['Nome']
         user_id = user['CPF']
         user_info = user['Contato']
@@ -37,7 +37,7 @@ def all_books_report():
     sum_of_all_copies = 0  # Soma total de todas as cópias em estoque | e.g. Cópias/Exemplares = lista com ID e dispónibilidade(booleano) 
 
     # Percorre todos os livros de storage.json
-    for book in data['books']:
+    for book in all_books_and_users_data['books']:
         book_title = book['Título']
         book_author = book['Autor']
         book_year = book['Ano de Publicação']
@@ -57,7 +57,7 @@ def all_books_report():
         all_books.append(individual_book)    
 
         # Conta a quantidade de livros em estoque
-        quantity_of_titles_stock = len(data['books'])
+        quantity_of_titles_stock = len(all_books_and_users_data['books'])
         sum_of_all_copies += copies_stock 
     
     # Imprime a quantidade total de livros em estoque

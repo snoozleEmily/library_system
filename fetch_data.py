@@ -6,7 +6,7 @@ def fetch_storage_data():
     with open(file_path, 'r', encoding='utf-8-sig') as f: 
         return json.load(f)
 
-data = fetch_storage_data() #Variável para referenciar a função
+all_books_and_users_data = fetch_storage_data() #Variável para referenciar a função
 
 #Atualiza os dados no storage    
 def save_data(new_data):

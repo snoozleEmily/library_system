@@ -99,8 +99,8 @@ def add_new_book():
     match correct_input:         
         case '1':
             # Salva os dados do novo livro permanentemente no armazenamento
-            data['books'].append(_single_book) 
-            save_data(data)
+            all_books_and_users_data['books'].append(_single_book) 
+            save_data(all_books_and_users_data)
             print('Livro Registrado Com Sucesso!')
             '''
             # Retorna quantas copias estão disponíveis 
@@ -141,4 +141,4 @@ def add_new_book():
             correct_input = input('1.SIM | 2.NÃO')
             space()
 
-    return data
+    return all_books_and_users_data
