@@ -29,7 +29,7 @@ def get_user_data(attribute):
             found_error(f'invalid_{error_type}')
             ask_user_input()
 
-        for user in data['users']:
+        for user in all_books_and_users_data['users']:
             if user[attribute] == search_value:
                 print('Usuário: ')
                 print(user)
@@ -64,7 +64,7 @@ def get_book_data(attribute):
         # Guarda o input na variável search_value
         search_value = input(f"Digite o {attribute}: ") 
         
-        for book in data['books']:
+        for book in all_books_and_users_data['books']:
             if book[attribute].lower() == search_value.lower():
                 print('Livro: ')
                 print(book)
