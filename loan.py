@@ -9,7 +9,7 @@ def loan_book():
 
     def make_loan(user,book):        
         # Verifica se o usuário já está com um livro emprestado
-        for loaned_book in data['books']:
+        for loaned_book in all_books_and_users_data['books']:
             if loaned_book['Número de Identificação'] == book['Número de Identificação']:
                 if loaned_book['Copias Disponíveis'] == 0:
                     found_error('unavailable_book')
@@ -27,6 +27,6 @@ def loan_book():
         print("Emprestado:", book["Título"], "para", user["Nome"])
         print("Copias Disponíveis atualizadas:", loaned_book['Copias Disponíveis'])
 
-        save_data(data)
+        save_data(all_books_and_users_data)
 
     make_loan(user,book)

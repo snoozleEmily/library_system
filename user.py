@@ -81,8 +81,8 @@ def add_new_user():
     match correct_input:             
         case '1': 
             # Salva os dados do novo usuário 
-            data['users'].append(single_user) 
-            save_data(data)
+            all_books_and_users_data['users'].append(single_user) 
+            save_data(all_books_and_users_data)
             print('Usuário Registrado Com Sucesso!')        
         case '2':
             # Corrigi os dados do novo usuário 
@@ -91,4 +91,4 @@ def add_new_user():
             # Caso o input não seja 1 ou 2 retorna um erro e requere o input novamente
             found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
-    return data
+    return all_books_and_users_data

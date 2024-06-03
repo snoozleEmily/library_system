@@ -7,7 +7,7 @@ def make_devolution():
     user = ask_user_input()
     book = user['Livro Em Posse']['ID']
     
-    for loaned_book in data['books']:
+    for loaned_book in all_books_and_users_data['books']:
         try:
             if loaned_book['ID'] == book:
                 # Atualiza o número de copias disponíveis
@@ -25,4 +25,4 @@ def make_devolution():
     space()
     print('Devolução feita com sucesso!')
     # Salva os novos dados
-    save_data(data)
+    save_data(all_books_and_users_data)
