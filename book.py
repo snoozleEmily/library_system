@@ -90,7 +90,9 @@ def create_book():
 
 def add_new_book():
     space()
+    dash()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
+    dash()
     print(_single_book)
 
     space()
@@ -103,8 +105,17 @@ def add_new_book():
             save_data(all_books_and_users_data)
             print('Livro Registrado Com Sucesso!')                  
         case '2':
-            # Corrigi os dados do novo livro
-            create_book()
+            print('1) Menu principal')
+            print('2) Inserir dados novamente')
+            
+            redo_input = input()
+            match redo_input:
+                case '1':
+                    # Volta para o menu principal
+                    pass
+                case '2':
+                    # Corrigi os dados do novo livro
+                    create_book()
         case _ :
             print('[ERRO] Escolha uma das opções disponíveis.')
             correct_input = input('1.SIM | 2.NÃO')

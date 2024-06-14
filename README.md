@@ -6,7 +6,7 @@ This repository was created as a university project. It is a conceptual library 
 
 The code includes comments in Portuguese to provide clarity within the educational context, as the university course is conducted in this language.
 
-For educational purposes, the use of external libraries was avoided to ensure a deeper understanding of working with vanilla Python. However, the `uuid` and `datetime` libraries were used since they do not significantly impact the core functionalities of the code like other libraries might.
+For educational purposes, the use of external libraries was avoided to ensure a deeper understanding of working with vanilla Python. However, the `json`, `uuid` and `datetime` libraries were used since they do not significantly impact the core functionalities of the code like other libraries might.
 
 ## Disclaimer
 

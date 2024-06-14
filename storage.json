@@ -111,6 +111,22 @@
                 }
             ],
             "Copias Disponíveis": 2
+        },
+        {
+            "Título": "Alice's Adventures in Wonderland",
+            "Autor": "Lewis Carroll",
+            "Ano de Publicação": 1865,
+            "Copias em Estoque": [
+                {
+                    "ID": "6f23a945-486f-44db-91d7-4f6f03c45d07",
+                    "Disponível": true
+                },
+                {
+                    "ID": "46133946-873b-4261-8e33-07301a450401",
+                    "Disponível": true
+                }
+            ],
+            "Copias Disponíveis": 2
         }
     ],
     "users": [
