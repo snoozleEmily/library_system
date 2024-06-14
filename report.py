@@ -18,7 +18,8 @@ def all_users_report():
         user_loan = user['Livro Em Posse']        
 
         # Formata as informações de cada usuário e o adiciona à lista de todos os usuários
-        individual_user = f'//Nome: {user_name} | CPF: {user_id} | Contato: {user_info} | Livro Em Posse: {'Nenhum' if user_loan is '' else user_loan} '
+        user_with_loan_checker = f'Nenhum' if user_loan == '' else user_loan
+        individual_user = f'//Nome: {user_name} | CPF: {user_id} | Contato: {user_info} | Livro Em Posse: {user_with_loan_checker} '
         all_users.append(individual_user)
 
     dash()    
