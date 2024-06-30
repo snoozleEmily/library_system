@@ -84,8 +84,7 @@ def create_book():
         'Ano de Publicação': new_book.publish_year,
         'Copias em Estoque': new_book.copies_in_stock,
         'Copias Disponíveis': new_book.copies_available
-        }
-    
+        }    
     return _single_book and add_new_book()
 
 def add_new_book():
@@ -110,14 +109,12 @@ def add_new_book():
             
             redo_input = input()
             match redo_input:
-                case '1':
-                    # Volta para o menu principal
+                case '1':                    
                     pass
                 case '2':
-                    # Corrigi os dados do novo livro
                     create_book()
         case _ :
-            print('[ERRO] Escolha uma das opções disponíveis.')
+            found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
             space()
 

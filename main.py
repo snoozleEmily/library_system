@@ -10,7 +10,6 @@ from report import *
 while True:
     menu()
     choice = input('Escolha uma opção: ')
-    # o input não funciona pela primeira vez
     match choice:
         case '1':
             # Cria um novo livro

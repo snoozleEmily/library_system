@@ -24,5 +24,4 @@ def make_devolution():
 
     space()
     print('Devolução feita com sucesso!')
-    # Salva os novos dados
     save_data(all_books_and_users_data)
