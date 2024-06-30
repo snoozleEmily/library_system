@@ -2,7 +2,7 @@ from dash import *
 from fetch_data import *
 from error import *
 
- # Declarando variável global
+# Declarando variável global
 single_user = {}
 
 #Cadastro de Usuários: nome, número de identificação (CPF) e contato 
@@ -84,10 +84,16 @@ def add_new_user():
             all_books_and_users_data['users'].append(single_user) 
             save_data(all_books_and_users_data)
             print('Usuário Registrado Com Sucesso!')        
-        case '2':
-            # Corrigi os dados do novo usuário 
-            create_user()
-
+        case '2':        
+            print('1) Menu principal')
+            print('2) Inserir dados novamente')
+            
+            redo_input = input()
+            match redo_input:
+                case '1':
+                    pass
+                case '2': 
+                    create_user()
         case _:
             # Caso o input não seja 1 ou 2 retorna um erro e requere o input novamente
             found_error('invalid_value')

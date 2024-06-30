@@ -1,15 +1,14 @@
 from dash import *
 import datetime
 
-# Obtem o ano atual
 current_year = datetime.datetime.now().year 
 
 error_messages = {
     'return_menu': '[ERRO] Ixi... Me perdi aqui. Vamos precisar voltar para o menu.',
 
     # Erros de Entrada 
-    'cpf_length': '[ERRO] Ha, ha! Parece que algum número ficou para trás. Que tal tentar inserir o CPF de novo, mas desta vez com os 11 dígitos completinhos? Não deixe nenhum para trás!',
-    'info_length': '[ERRO] Oh là là! Telefone, é você? Precisamos de todas as suas nove vidas! Por favor digite exatamente 9 números.',
+    'cpf_length': '[ERRO] Ha, ha! Parece que esse CPF não tem 11 dígitos. Não deixe nenhum para trás!',
+    'info_length': '[ERRO] Oh là là! Não sabia que existia algum número de telefone assim. Por favor digite exatamente 9 números.',
     'year_length': '[ERRO] O ano precisa ter quatro números. Nossa biblioteca não aceita livros tão antigos assim!',
     'year_current': f'[ERRO] Ano inválido. Parece que estamos viajando para o futuro! Por favor, insira um ano válido ANTES de {current_year}.',
     'exceeded_book_limit': '[ERRO] O número de cópias disponíveis não pode ser maior do que o das cópias em estoque.',
@@ -28,5 +27,4 @@ error_messages = {
 }
 
 def found_error(entry_type):
-    if entry_type in error_messages:
-        print(error_messages[entry_type])
+    print(error_messages[entry_type])
