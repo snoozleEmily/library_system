@@ -4,12 +4,10 @@ import datetime
 current_year = datetime.datetime.now().year 
 
 error_messages = {
-    'return_menu': '[ERRO] Ixi... Me perdi aqui. Vamos precisar voltar para o menu.',
-
     # Erros de Entrada 
     'cpf_length': '[ERRO] Ha, ha! Parece que esse CPF não tem 11 dígitos. Não deixe nenhum para trás!',
     'info_length': '[ERRO] Oh là là! Não sabia que existia algum número de telefone assim. Por favor digite exatamente 9 números.',
-    'year_length': '[ERRO] O ano precisa ter quatro números. Nossa biblioteca não aceita livros tão antigos assim!',
+    'year_length': '[ERRO] O ano precisa ter quatro números. Nossa biblioteca não aceita livros de tal século!',
     'year_current': f'[ERRO] Ano inválido. Parece que estamos viajando para o futuro! Por favor, insira um ano válido ANTES de {current_year}.',
     'exceeded_book_limit': '[ERRO] O número de cópias disponíveis não pode ser maior do que o das cópias em estoque.',
 
@@ -21,7 +19,9 @@ error_messages = {
     
     # Itens Indisponíveis
     'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Faça uma pausa, pegue um café e tente novamente amanhã. Quem sabe esse livro não decide esperar por você na prateleira da próxima vez!',
-    'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.'
+    'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
+    'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, porém olhei em todos os cantos e não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'
+
 }
 
 def found_error(entry_type):
