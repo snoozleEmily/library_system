@@ -19,8 +19,7 @@ while True:
             create_user()
         case '3':
             # Faz empréstimo de um livro para algum usuário
-            ask_user_input()
-            ask_book_input()
+            loan_book()
         case '4':
             # Faz devolução de algum livro emprestado
             make_devolution()
@@ -36,7 +35,7 @@ while True:
             print('Sessão Encerrada. Até mais!')
             break
         case _:
-            # Caso o input seja inválido retorna um erro e reinicia o loop para mostrar o menu 
+            # Se input inválido retorna um erro e reinicia o loop
             found_error('invalid_value')
             space()
             continue
