@@ -1,11 +1,14 @@
 import uuid
+from typing import *
 from dash import *
 from error import *
 from fetch_data import *
 
-#Cadastro de Livros: título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
 class Book:
-    def __init__(self, title, author, publish_year, copies_in_stock, copies_available):
+    '''
+    Título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
+    '''
+    def __init__(self, title, author, publish_year, copies_in_stock, copies_available) -> None:
         self.title = title
         self.author = author
         self.publish_year = publish_year
@@ -14,7 +17,7 @@ class Book:
 
  # Declarando variável global
 _single_book = {}   
-def create_book():
+def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
     title = input('Título do livro: ')
     author = input('Autor do livro: ')
     
@@ -85,9 +88,9 @@ def create_book():
         'Copias em Estoque': new_book.copies_in_stock,
         'Copias Disponíveis': new_book.copies_available
         }    
-    return _single_book and add_new_book()
+    return _single_book and add_new_book(books_df)
 
-def add_new_book():
+def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
     space()
     dash()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
@@ -100,40 +103,9 @@ def add_new_book():
     match correct_input:         
         case '1':
             # Salva os dados do novo livro permanentemente no armazenamento
-            all_books_and_users_data['books'].append(_single_book) 
-            save_data(all_books_and_users_data)
-            print('Livro Registrado Com Sucesso!')
-            '''
-            # Retorna quantas copias estão disponíveis 
-            for copy in _single_book['Copias Disponíveis']:
-                avaliable_copies = 0
-                if copy['Disponível'] == True:
-                    avaliable_copies += 1            
-
-            # Verifica se a quantidade de livros em estoque é a mesma dos disponíveis
-            if _single_book['Copias em Estoque'] == avaliable_copies:
-                pass
-            else:
-                found_user = False
-                for user in data['users']:
-                    try:
-                        if user['Livro Em Posse']['Título'] == _single_book['Título']:
-                           print('Encontrei alguém com uma cópia desse livro já emprestada, mas ainda não foi resgistrado. Deseja atualizar o usuário?')
-                           update_choice = input('1.SIM | 2.NÃO')
-                           space()
-                           match update_choice:
-                                case '1':
-                                    borrow_book_id = _single_book['Copias em Estoque']['ID']
-                                    print(borrow_book_id)
-                                    found_user = True
-                                case '2':
-                                   break #Skipa todo o código restante e finaliza
-                    except (AttributeError, KeyError, TypeError): #Pq tô usando isso aqui?
-                        pass   
-
-                if not found_user:
-                    found_error('missing_user')
-             '''       
+            books_df.at[0, 'books'].append(_single_book)
+            save_books(books_df)
+            print('Livro Registrado Com Sucesso!')                 
         case '2':
             print('1) Menu principal')
             print('2) Inserir dados novamente')
@@ -149,4 +121,4 @@ def add_new_book():
             correct_input = input('1.SIM | 2.NÃO')
             space()
 
-    return all_books_and_users_data
+    return books_df

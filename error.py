@@ -1,5 +1,5 @@
-from dash import *
 import datetime
+from dash import *
 
 current_year = datetime.datetime.now().year 
 
@@ -14,7 +14,7 @@ error_messages = {
     # Valores Inválidos
     'invalid_value': '[ERRO] Essa não! Esse valor parece ser inválido. Por favor, tente novamente.',
     'invalid_CPF': '[ERRO] Oops! Não conseguimos encontrar nenhum usuário com este CPF. Será que os números estão corretos?',
-    'invalid_name': '[ERRO] Hum... Parece que não tem ninguém com esse nome por aqui. Será que você que digitou certinho?',
+    'invalid_name': '[ERRO] Hum... Esse nome é estranho. Será que você que digitou certinho?',
     'invalid_book': '[ERRO] Parece que esse livro não está em nossa biblioteca. Será que você digitou certinho?',
     
     # Itens Indisponíveis
@@ -24,5 +24,10 @@ error_messages = {
 
 }
 
-def found_error(entry_type):
+def found_error(entry_type) -> None:
+    '''
+    Imprime alguma mensagem de erro específica.
+    '''
+    space()
     print(error_messages[entry_type])
+    space()

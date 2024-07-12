@@ -1,18 +1,21 @@
+from typing import *
 from dash import *
 from fetch_data import *
 from error import *
 
 # Declarando variável global
-single_user = {}
+_single_user = {}
 
-#Cadastro de Usuários: nome, número de identificação (CPF) e contato 
 class User:
-    def __init__(self, name, cpf, info):
+    '''
+    Nome, número de identificação (CPF) e contato
+    '''
+    def __init__(self, name, cpf, info) -> None:
         self.name = name
         self.cpf = cpf
         self.info = info
 
-def create_user():
+def create_user() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
     input_prompts = [
         ('Nome completo do usuário', 'name'),
         ('CPF', 'cpf'),
@@ -34,7 +37,7 @@ def create_user():
                     case 'name':
                         if user_input == '' or user_input.isdigit():
                             # Levanta um erro caso o input seja uma string vazia ou contenha apenas dígitos
-                            error = 'number_length'
+                            error = 'invalid_name'
                             raise ValueError
                         name = user_input
 
@@ -61,28 +64,31 @@ def create_user():
     # Passando as informações da classe User para uma variável
     new_user = User(name, cpf, info)
 
-    global single_user
-    single_user = {
+    global _single_user
+    _single_user = {
             'Nome': new_user.name,
             'CPF': new_user.cpf,
             'Contato': new_user.info,
             'Livro Em Posse': ''
             }
     
-    return single_user and add_new_user()
+    return _single_user and add_new_user(users_df)
 
-def add_new_user():
+def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
     space()
+    dash()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
-    print(single_user)
-    print('1.SIM | 2.NÃO')
-    correct_input = input()   
+    dash()
+    print(_single_user)
 
+    space()
+    print('1.SIM | 2.NÃO')
+    correct_input = input()
     match correct_input:             
         case '1': 
             # Salva os dados do novo usuário 
-            all_books_and_users_data['users'].append(single_user) 
-            save_data(all_books_and_users_data)
+            users_df.at[0, 'users'].append(_single_user) 
+            save_users(users_df)
             print('Usuário Registrado Com Sucesso!')        
         case '2':        
             print('1) Menu principal')
@@ -98,4 +104,5 @@ def add_new_user():
             # Caso o input não seja 1 ou 2 retorna um erro e requere o input novamente
             found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
-    return all_books_and_users_data
+
+    return users_df

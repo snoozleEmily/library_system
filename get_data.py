@@ -2,39 +2,35 @@ from dash import *
 from fetch_data import *
 from error import *
 
-def get_user_data(attribute):
-        search_value = input(f"Digite o {attribute}: ")
-        error_type = 'invalid_value' # Define erro padrão
-        
-        if attribute == 'Nome':
-            error_type = 'name'
-        elif attribute == 'CPF':
-            # CPF deve ter 11 digitos
-            try: 
-                if len(search_value) != 11 and int(search_value):                    
-                    found_error('cpf_length')
-                else:
-                    error_type = 'CPF'
-            except ValueError:
-                found_error(error_type)
-                ask_user_input()
-                return
-        else:
-            found_error(f'invalid_{error_type}')
-            ask_user_input()
+def get_user_data(attribute: str, users_df: pd.DataFrame) -> pd.Series:
+    error_type = 'value' # Define erro padrão    
+    search_value = input(f"Digite o {attribute}: ")   
+     
+    if attribute == 'Nome': error_type = 'name'
 
-        for user in all_books_and_users_data['users']:
-            if user[attribute] == search_value:
-                print('Usuário: ')
-                print(user)
-                space()
-                return user
+    elif attribute == 'CPF':
+        # CPF deve ter 11 digitos
+        if len(search_value) != 11 and search_value.isdigit():                    
+            found_error('cpf_length') 
             
-         # Caso o usuário não for encontrado, exibe um erro  
-        found_error(f'invalid_{error_type}')
-        ask_user_input()
+        search_value = int(search_value)
+        error_type = 'CPF'
+
+    else: found_error(f'invalid_{error_type}')  
+            
+    filtered_users = users_df[users_df[attribute] == search_value]
+
+    if not filtered_users.empty:
+        print('Usuário encontrado:')
+        print(filtered_users)
+        space()
+        return filtered_users.iloc[0]  # Retorna usuário compatível        
     
-def ask_user_input():
+    else: # Caso o usuário não for encontrado, exibe um erro 
+        found_error(f'invalid_{error_type}')
+        ask_user_input(users_df)
+    
+def ask_user_input(users_df: pd.DataFrame) -> pd.Series:
         print('Pesquisar usuário por: ')
         space()
         print('1) Nome')
@@ -43,30 +39,31 @@ def ask_user_input():
         user_search = input('') 
         match user_search:
             case '1':
-                user = get_user_data('Nome')
+                user = get_user_data('Nome', users_df)
                 return user
             case '2':
-                user = get_user_data('CPF')
+                user = get_user_data('CPF', users_df)
                 return user
             case _:
                 found_error('invalid_value') 
-                ask_user_input()
+                ask_user_input(users_df)
    
-def get_book_data(attribute):
+def get_book_data(attribute: str, books_df: pd.DataFrame) -> pd.Series:
         search_value = input(f"Digite o {attribute}: ") 
         
-        for book in all_books_and_users_data['books']:
-            if book[attribute].lower() == search_value.lower():
-                print('Livro: ')
-                print(book)
-                space()
-                return book
-            
-        # Caso o livro não for encontrado, exibe um erro    
-        found_error('invalid_book') 
-        ask_book_input()
+        filtered_books = books_df[books_df[attribute].str.lower() == search_value.lower()]
+
+        if not filtered_books.empty:
+            print('Livro encontrado:')
+            print(filtered_books)
+            space()
+            return filtered_books.iloc[0]  # Retorna livro compatível
+                 
+        else: # Caso o livro não for encontrado, exibe um erro
+            found_error('invalid_book') 
+            ask_book_input(books_df)
     
-def ask_book_input():
+def ask_book_input(books_df: pd.DataFrame) -> pd.Series:
         print('Pesquisar livro por: ')
         space()
         print('1) Nome')
@@ -76,14 +73,14 @@ def ask_book_input():
         book_search = input('')
         match book_search:
             case '1':
-                book = get_book_data('Título')
+                book = get_book_data('Título', books_df)
                 return book
             case '2':
-                book = get_book_data('ID')
+                book = get_book_data('ID', books_df)
                 return book
             case '3':
-                book = get_book_data('Autor')
+                book = get_book_data('Autor', books_df)
                 return book    
             case _:
                 found_error('invalid_value') 
-                ask_book_input()        
+                ask_book_input(books_df)        

@@ -19,8 +19,8 @@ while True:
             create_user()
         case '3':
             # Faz empréstimo de um livro para algum usuário
-            ask_user_input()
-            ask_book_input()
+            ask_user_input(users_df)
+            ask_book_input(books_df)
         case '4':
             # Faz devolução de algum livro emprestado
             make_devolution()
