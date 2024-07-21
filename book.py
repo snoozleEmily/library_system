@@ -1,8 +1,12 @@
 import uuid
-from typing import *
-from dash import *
-from error import *
-from fetch_data import *
+from typing import Union, Callable
+
+from dash import dash, space
+from error import found_error, get_current_year
+from fetch_data import pd, books_df, save_books
+
+# Declarando variável global
+_single_book: dict = {}   
 
 class Book:
     '''
@@ -15,11 +19,10 @@ class Book:
         self.copies_in_stock = copies_in_stock        
         self.copies_available = copies_available
 
- # Declarando variável global
-_single_book = {}   
 def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
-    title = input('Título do livro: ')
-    author = input('Autor do livro: ')
+    current_year: int = get_current_year()
+    title: str = input('Título do livro: ')
+    author: str = input('Autor do livro: ')
     
     numeric_input_prompts = [
         ('Ano de publicação do livro', 'publish_year'),
@@ -91,6 +94,8 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
     return _single_book and add_new_book(books_df)
 
 def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
+    new_book_df = pd.DataFrame([_single_book])        
+
     space()
     dash()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
@@ -102,17 +107,18 @@ def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
     correct_input = input()    
     match correct_input:         
         case '1':
-            # Salva os dados do novo livro permanentemente no armazenamento
-            books_df.at[0, 'books'].append(_single_book)
-            save_books(books_df)
-            print('Livro Registrado Com Sucesso!')                 
+            # Salva os dados do novo livro permanentemente no armazenamento            
+            updated_books_df = pd.concat([books_df, new_book_df], ignore_index=True)
+            save_books(updated_books_df)
+            print('Livro Registrado Com Sucesso!')                             
         case '2':
             print('1) Menu principal')
             print('2) Inserir dados novamente')
             
             redo_input = input()
             match redo_input:
-                case '1':                    
+                case '1':
+                    _single_book.clear() # Set global variable to None                    
                     pass
                 case '2':
                     create_book()
@@ -121,4 +127,8 @@ def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
             correct_input = input('1.SIM | 2.NÃO')
             space()
 
-    return books_df
+    _single_book.clear() # Set global variable to None
+    return updated_books_df
+
+if __name__ == '__main__':
+    create_book()

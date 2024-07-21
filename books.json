@@ -142,5 +142,29 @@
             }
         ],
         "Copias Disponíveis": 2
+    },
+    {
+        "Título": "The Great Gatsby",
+        "Autor": "F. Scott Fitzgerald",
+        "Ano de Publicação": 1925,
+        "Copias em Estoque": [
+            {
+                "ID": "f5d7174f-17b9-4f21-9c50-d4feed8f0072",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 1
+    },
+    {
+        "Título": "In Search of Lost Time",
+        "Autor": "Marcel Proust",
+        "Ano de Publicação": 1913,
+        "Copias em Estoque": [
+            {
+                "ID": "f23389ca-fd38-4952-b9c8-eaf66e3f535f",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 1
     }
 ]

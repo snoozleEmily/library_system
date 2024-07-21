@@ -1,14 +1,15 @@
 import datetime
-from dash import *
+from dash import space
 
-current_year = datetime.datetime.now().year 
+def get_current_year() -> int:
+    return datetime.datetime.now().year 
 
 error_messages = {
     # Erros de Entrada 
     'cpf_length': '[ERRO] Ha, ha! Parece que esse CPF não tem 11 dígitos. Não deixe nenhum para trás!',
     'info_length': '[ERRO] Oh là là! Não sabia que existia algum número de telefone assim. Por favor digite exatamente 9 números.',
     'year_length': '[ERRO] O ano precisa ter quatro números. Nossa biblioteca não aceita livros de tal século!',
-    'year_current': f'[ERRO] Ano inválido. Parece que estamos viajando para o futuro! Por favor, insira um ano válido ANTES de {current_year}.',
+    'year_current': lambda: f'[ERRO] Ano inválido. Parece que estamos viajando para o futuro! Por favor, insira um ano válido ANTES de {get_current_year()}.',
     'exceeded_book_limit': '[ERRO] O número de cópias disponíveis não pode ser maior do que o das cópias em estoque.',
 
     # Valores Inválidos

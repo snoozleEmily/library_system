@@ -1,10 +1,11 @@
-from typing import *
-from dash import *
-from fetch_data import *
-from error import *
+from typing import Union, Callable
+
+from dash import dash, space
+from fetch_data import pd, users_df, save_users
+from error import found_error
 
 # Declarando variável global
-_single_user = {}
+_single_user: dict = {}
 
 class User:
     '''
@@ -75,6 +76,8 @@ def create_user() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
     return _single_user and add_new_user(users_df)
 
 def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
+    new_user_df = pd.DataFrame([_single_user])
+
     space()
     dash()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
@@ -87,8 +90,8 @@ def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
     match correct_input:             
         case '1': 
             # Salva os dados do novo usuário 
-            users_df.at[0, 'users'].append(_single_user) 
-            save_users(users_df)
+            updated_users_df = pd.concat([users_df, new_user_df], ignore_index=True) 
+            save_users(updated_users_df)
             print('Usuário Registrado Com Sucesso!')        
         case '2':        
             print('1) Menu principal')
@@ -97,6 +100,7 @@ def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
             redo_input = input()
             match redo_input:
                 case '1':
+                    _single_user.clear()
                     pass
                 case '2': 
                     create_user()
@@ -105,4 +109,8 @@ def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
             found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
 
+    _single_user.clear()
     return users_df
+
+if __name__ == '__main__':
+    create_user()
