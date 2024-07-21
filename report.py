@@ -1,5 +1,5 @@
-from dash import *
-from fetch_data import *
+from dash import dash, space
+from fetch_data import pd, books_df, users_df
 
 # Variáveis para armazenar informações de um único livro/usuário
 individual_book = ''
@@ -9,17 +9,17 @@ individual_user = ''
 all_books = []
 all_users = []
 
-def all_users_report():
+def all_users_report():    
     # Percorre todos os usuários de storage.json
-    for user in all_books_and_users_data['users']:
+    for _, user in users_df.iterrows():
         user_name = user['Nome']
         user_id = user['CPF']
         user_info = user['Contato']
-        user_loan = user['Livro Em Posse']        
-
+        user_loan = user['Livro Em Posse.Título']        
+        
         # Formata as informações de cada usuário e o adiciona à lista de todos os usuários
-        user_with_loan_checker = f'Nenhum' if user_loan == '' else user_loan
-        individual_user = f'//Nome: {user_name} | CPF: {user_id} | Contato: {user_info} | Livro Em Posse: {user_with_loan_checker} '
+        loan_checker = f'Nenhum' if pd.isna(user_loan) or not user_loan else user_loan
+        individual_user = f'//Nome: {user_name} | CPF: {user_id} | Contato: {user_info} | Livro Em Posse: {loan_checker} '
         all_users.append(individual_user)
 
     space()
@@ -36,11 +36,11 @@ def all_users_report():
 
 def all_books_report():
     unavailable_count = 0  # Contador de livros indisponíveis (emprestados)
-    quantity_of_titles_stock = 0  #e.g. Título = Orgulho e Preconceito
+    quantity_of_titles_stock = len(books_df)  #e.g. Título = Orgulho e Preconceito
     sum_of_all_copies = 0  #e.g. Cópias/Exemplares = lista com ID e dispónibilidade (booleano) 
     
     # Percorre todos os livros de storage.json
-    for book in all_books_and_users_data['books']:
+    for _, book in books_df.iterrows():
         book_title = book['Título']
         book_author = book['Autor']
         book_year = book['Ano de Publicação']
@@ -54,8 +54,7 @@ def all_books_report():
         individual_book = f'//Livro: {book_title} | Autor(a): {book_author} | Ano De Publicação: {book_year} | Copias Em Estoque: {copies_stock} | Copias Disponíveis Para Empréstimo: {book_available} '
         all_books.append(individual_book)    
 
-        # Conta a quantidade de livros em estoque
-        quantity_of_titles_stock = len(all_books_and_users_data['books'])
+        # Conta a quantidade de livros em estoque        
         sum_of_all_copies += copies_stock 
     
     # Imprime a quantidade total de livros em estoque
@@ -73,9 +72,14 @@ def all_books_report():
         space()
 
     # Imprime a lista de todos os livros    
-    for individual_book in all_books:        
+    for individual_book in all_books:  
+        dash()      
         print(individual_book)
         dash()
     
     space()
     space()
+
+if __name__ == '__main__':
+    all_users_report()
+    all_books_report()

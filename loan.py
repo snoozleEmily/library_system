@@ -1,33 +1,33 @@
-from dash import *
-from error import *
-from get_data import *
-from fetch_data import *
+from error import found_error
+from get_user import ask_user_input
+from get_book import ask_book_input
+from fetch_data import books_df, users_df,save_books, save_users
 
 def loan_book():
     user = ask_user_input()
-    book = ask_book_input()
+    book_df = ask_book_input()
+    book = books_df.squeeze()
+            
+    # Verifica se o usuário já está com um livro emprestado
+    for index, loaned_book in books_df.iterrows():
+        if loaned_book['ID'] == book['ID']:
+            if loaned_book['Copias Disponíveis'] == 0:
+                found_error('unavailable_book')
+                return
+            # Atualiza o número de copias disponíveis
+            loaned_book['Copias Disponíveis'] -= 1 
+            break
 
-    def make_loan(user,book):
+    # Atualiza os dados usuário registrando o empréstimo
+    user['Livro Em Posse.Título'] = book['Título']
+    user['Livro Em Posse.ID'] = book['ID']
         
-        # Verifica se o usuário já está com um livro emprestado
-        for loaned_book in all_books_and_users_data['books']:
-            if loaned_book['Número de Identificação'] == book['Número de Identificação']:
-                if loaned_book['Copias Disponíveis'] == 0:
-                    found_error('unavailable_book')
-                    return
-                # Atualiza o número de copias disponíveis
-                loaned_book['Copias Disponíveis'] -= 1 
-                break
 
-        # Atualiza os dados usuário registrando o empréstimo
-        user['Livro Em Posse'] = {
-            'Título': book['Título'],
-            'ID': book['Número de Identificação']
-        }
+    print("Emprestado:", book["Título"], "para", user["Nome"])
+    print("Copias Disponíveis atualizadas:", loaned_book['Copias Disponíveis'])
 
-        print("Emprestado:", book["Título"], "para", user["Nome"])
-        print("Copias Disponíveis atualizadas:", loaned_book['Copias Disponíveis'])
+    save_books(books_df)
+    save_users(users_df)
 
-        save_data(all_books_and_users_data)
-
-    make_loan(user,book)
+if __name__ == '__main__':
+    loan_book()

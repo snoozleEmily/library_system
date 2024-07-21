@@ -23,7 +23,7 @@ To use this library management system, follow these steps:
 
 ## Prerequisites
 
-Please refer to the [prerequisites.md](./docs/prerequisites.md) file for a detailed list of the pre-requirements made by the professors.
+Please refer to the [prerequisites.md](./docs/prerequisites.md) file for a detailed list of the pre-requirements made by my professors.
 
 ## Contributing
 
