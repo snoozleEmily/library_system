@@ -70,7 +70,7 @@ def create_user() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
             'Nome': new_user.name,
             'CPF': new_user.cpf,
             'Contato': new_user.info,
-            'Livro Em Posse': ''
+            'Livro Em Posse': {}
             }
     
     return _single_user and add_new_user(users_df)

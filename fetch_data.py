@@ -24,8 +24,19 @@ def save_books(new_book) -> None:
         json.dump(new_book, f, ensure_ascii=False)
 
 def save_users(new_user) -> None:
-    new_user: dict = new_user.to_dict(orient='records')
-    with open(users_path, 'w', encoding='utf-8-sig') as f:
-        json.dump(new_user, f, ensure_ascii=False)
+    new_user = new_user.fillna("").copy()
+    for index in range(len(new_user)):
+        loaned_book = new_user.iloc[index][['Livro Em Posse.Título', 'Livro Em Posse.ID']]
+        if loaned_book.fillna().values.any(): loaned_book = {}
+        else: loaned_book = {
+            'Título': loaned_book['Livro Em Posse.Título'],
+            'ID': loaned_book['Livro Em Posse.ID']
+        }     
 
+    new_user: dict = new_user.to_dict(orient='records')
+    print(new_user)
+    #with open(users_path, 'w', encoding='utf-8-sig') as f:
+    #    json.dump(new_user, f, ensure_ascii=False)
+
+save_users(users_df)
 

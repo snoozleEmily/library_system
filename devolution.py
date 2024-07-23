@@ -4,12 +4,12 @@ from fetch_data import pd, books_df, users_df, save_books, save_users
 
 def make_devolution():    
     user: pd.Series = ask_user_input()
-    book_id: str = user.loc['Livro Em Posse.ID']
-    book_name: str = user.loc['Livro Em Posse.Título'] 
+    #book_id: str = user.loc['Livro Em Posse.ID']
+    #book_name: str = user.loc['Livro Em Posse.Título'] 
     
     for index, row in books_df.iterrows():   
         for title in row['Copias em Estoque']: 
-            if title['ID'] == book_id and row['Título'] == book_name:
+            #if title['ID'] == book_id and row['Título'] == book_name:
                 
                 title['Disponível'] = not title['Disponível']
                 books_df.loc[index, 'Copias Disponíveis'] += 1                               
@@ -29,4 +29,5 @@ def make_devolution():
 
     #del user, book_id, book_name
     
-make_devolution()
+if __name__ == '__main__':    
+    make_devolution()
