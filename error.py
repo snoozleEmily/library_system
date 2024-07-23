@@ -19,7 +19,7 @@ error_messages = {
     'invalid_book': '[ERRO] Parece que esse livro não está em nossa biblioteca. Será que você digitou certinho?',
     
     # Itens Indisponíveis
-    'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Faça uma pausa, pegue um café e tente novamente amanhã. Quem sabe esse livro não decide esperar por você na prateleira da próxima vez!',
+    'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Faça uma pausa, pegue um café e tente novamente amanhã. Quem sabe esse livro não estará disponível na próxima vez!',
     'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
     'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, porém olhei em todos os cantos e não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'
 

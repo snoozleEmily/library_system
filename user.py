@@ -68,7 +68,7 @@ def create_user():
             'Nome': new_user.name,
             'CPF': new_user.cpf,
             'Contato': new_user.info,
-            'Livro Em Posse': ''
+            'Livro Em Posse': {}
             }
     
     return single_user and add_new_user()
