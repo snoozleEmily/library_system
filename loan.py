@@ -2,7 +2,7 @@ from dash import dash
 from error import found_error
 from get_user import ask_user_input
 from get_book import ask_book_input
-from fetch_data import books_df, users_df, save_books, save_users
+from fetch_data import pd,books_df, users_df,save_books, save_users
 
 def loan_book():
     books_df_copy = books_df.copy()
