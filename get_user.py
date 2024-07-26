@@ -52,3 +52,6 @@ def ask_user_input() -> Optional[pd.Series]:
             case _:
                 found_error('invalid_value') 
                 ask_user_input()
+
+if __name__ == '__main__':
+    ask_user_input()

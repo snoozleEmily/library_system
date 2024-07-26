@@ -8,13 +8,12 @@ def loan_book():
     books_df_copy = books_df.copy()
     users_df_copy = users_df.copy()    
 
-    user = ask_user_input()
-    title_df = ask_book_input()
-    book = title_df.squeeze()
+    user = ask_user_input() # OS USERS ESTÃO SENDO SALVOS LOGO QUANDO RODO O CODIGO????????
+    book = ask_book_input()
 
     available_id = None
-    for copy in book['Copias em Estoque']:
-        if copy['Disponível']:
+    for copy in book['Copias em Estoque']: #TypeError: 'NoneType' object is not subscriptable?????????
+        if copy['Disponível']:              # Sometimes I get this err, wtf? At other times this shit works
             available_id = copy['ID']
             break
             
@@ -26,23 +25,24 @@ def loan_book():
         if row['Copias Disponíveis'] == 0:
             found_error('unavailable_book')
             return
-        '''
-        
+        '''        
         for copy in copies_in_stock:   
             if copy['ID'] == available_id:  
                 # Atualiza o número de copias disponíveis
                 books_df_copy.at[index, 'Copias Disponíveis'] -= 1 
                 copy['Disponível'] = False
                 break
-
-    # Atualiza os dados usuário registrando o empréstimo
-    for index, row in users_df_copy.iterrows():
-        if user['ID'] == row['ID']:
-            user['Livro Em Posse'] = {
-                    'Título': book['Título'],
-                    'ID': available_id
-                    }
-
+    
+    # Remove usuário selecionado do dataframe
+    user_index = users_df_copy[users_df_copy['ID'] == user['ID']].index
+    users_df_copy.drop(user_index, inplace=True)
+    
+    # Adiciona o usuário com o livro emprestado
+    user['Livro Em Posse.Título'] = book['Título']
+    user['Livro Em Posse.ID'] = available_id
+    users_df_copy = pd.concat([users_df_copy, pd.DataFrame([user])], ignore_index=True)
+    print(user)
+    
     dash()
     print('Emprestado:', book['Título'], 'para', user['Nome'])
     print('Copias Disponíveis atualizadas:',  books_df_copy.at[index, 'Copias Disponíveis'])
