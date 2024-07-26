@@ -6,18 +6,18 @@
         "Copias em Estoque": [
             {
                 "ID": "bad4a522-dbc3-4d19-9061-8b228792a633",
-                "Disponível": false
+                "Disponível": true
             },
             {
                 "ID": "c071f2ff-c318-4da2-9a21-8e0fde139247",
-                "Disponível": false
+                "Disponível": true
             },
             {
                 "ID": "a603a807-7cd9-473f-9e7c-552351138eaf",
-                "Disponível": false
+                "Disponível": true
             }
         ],
-        "Copias Disponíveis": 0
+        "Copias Disponíveis": 3
     },
     {
         "Título": "Dom Casmurro",
@@ -58,7 +58,7 @@
         "Copias em Estoque": [
             {
                 "ID": "d541fb48-9e2f-452f-91aa-0d104afc3b4d",
-                "Disponível": true
+                "Disponível": false
             },
             {
                 "ID": "0f1edce9-a4df-4429-a6e8-200ff2b3a8e1",
@@ -69,7 +69,7 @@
                 "Disponível": true
             }
         ],
-        "Copias Disponíveis": 3
+        "Copias Disponíveis": 2
     },
     {
         "Título": "1984",

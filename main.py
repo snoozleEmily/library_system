@@ -21,10 +21,6 @@ while True:
         case '3':
             # Faz empréstimo de um livro para algum usuário
             loan_book()
-            '''
-            ask_user_input(users_df)
-            ask_book_input(books_df)
-            '''
         case '4':
             # Faz devolução de algum livro emprestado
             make_devolution()
@@ -40,7 +36,7 @@ while True:
             print('Sessão Encerrada. Até mais!')
             break
         case _:
-            # Caso o input seja inválido retorna um erro e reinicia o loop
+            # Retorna erro se input é inválido e reinicia o loop
             found_error('invalid_value')
             space()
             continue

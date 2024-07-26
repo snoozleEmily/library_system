@@ -5,6 +5,9 @@ def get_current_year() -> int:
     return datetime.datetime.now().year 
 
 error_messages = {
+    # Erros Gerais
+    'standard': '[ERRO] Ixi... Me perdi aqui. Vamos tentar de novo?',
+    
     # Erros de Entrada 
     'cpf_length': '[ERRO] Ha, ha! Parece que esse CPF não tem 11 dígitos. Não deixe nenhum para trás!',
     'info_length': '[ERRO] Oh là là! Não sabia que existia algum número de telefone assim. Por favor digite exatamente 9 números.',

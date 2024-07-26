@@ -32,7 +32,7 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
     for prompt, attribute in numeric_input_prompts:
         while True:
             type_input = input(f'{prompt}: ')
-            error = 'invalid_value' # Determina erro padrão
+            error_type = 'invalid_value' # Determina erro padrão
 
             try:
                 match attribute:
@@ -41,11 +41,11 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
 
                         if len(type_input) != 4:
                             # Levanta um erro caso o input não tenha 4 digitos
-                            error = 'year_length'
+                            error_type = 'year_length'
                             raise ValueError
                         if int(type_input) > current_year:
                             # Levanta um erro caso o input seja maior do que o ano atual
-                            error = 'year_current'
+                            error_type = 'year_current'
                             raise ValueError
                         
                     case 'copies_in_stock':
@@ -57,7 +57,7 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
 
                         if stock_amount < copies_available:
                             # Levanta um erro caso o número de cópias disponíveis seja maior do que cópias em estoque
-                            error = 'exceeded_book_limit'        
+                            error_type = 'exceeded_book_limit'        
                             raise ValueError                    
                         
                         copies_in_stock = []         
@@ -76,7 +76,7 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
                                 availability_count += 1                                                                
                 break
             except ValueError:
-                found_error(error)
+                found_error(error_type)
 
     # Passa as informações da classe Book para uma variável
     new_book = Book(title, author, publish_year, copies_in_stock, copies_available)
