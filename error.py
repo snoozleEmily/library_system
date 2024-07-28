@@ -6,7 +6,9 @@ def get_current_year() -> int:
 
 error_messages = {
     # Erros Gerais
-    'standard': '[ERRO] Ixi... Me perdi aqui. Vamos tentar de novo?',
+    'default': '[ERRO] Ixi... Me perdi aqui. Vamos tentar de novo?',
+    'year_unapplicable':'[ERRO] Esse ação não pode ser feita a partir pelo ano de publicação do livro.',
+    'year_unspecified': '[ERRO] Não foram encontrados livros dentro do intervalo de anos especificado.',
     
     # Erros de Entrada 
     'cpf_length': '[ERRO] Ha, ha! Parece que esse CPF não tem 11 dígitos. Não deixe nenhum para trás!',
@@ -22,11 +24,26 @@ error_messages = {
     'invalid_book': '[ERRO] Parece que esse livro não está em nossa biblioteca. Será que você digitou certinho?',
     
     # Itens Indisponíveis
-    'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Faça uma pausa, pegue um café e tente novamente amanhã. Quem sabe esse livro não estará disponível na próxima vez!',
+    'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Tente novamente amanhã. Quem sabe esse livro não estará disponível!',
     'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
-    'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, porém olhei em todos os cantos e não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'
-
+    'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, porém olhei em todos os cantos e não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'    
 }
 
-def found_error(entry_type):
-    print(error_messages[entry_type])
+def found_error(entry_type: str = None) -> None:
+    """
+    Esta função exibe uma mensagem de erro com base no tipo de entrada (entry_type) fornecido.
+    
+    :param entry_type: Uma string que representa o tipo de erro.
+    """
+    # Get the error message from the dictionary based on entry_type
+    error_message = error_messages[entry_type] if entry_type else error_messages['default']
+    
+    # Verifica se a mensagem de erro pode ser chamada (e.g. lambda)
+    if callable(error_message): 
+        space() 
+        print(error_message())
+        space()
+    else:
+        space()
+        print(error_message)
+        space()

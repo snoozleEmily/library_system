@@ -1,12 +1,12 @@
 ﻿[
     {
-        "Título": "Harry Potter and the Philosopher's Stone",
+        "Título": "Harry Potter e a Pedra Filosofal",
         "Autor": "J. K. Rowling",
         "Ano de Publicação": 1997,
         "Copias em Estoque": [
             {
                 "ID": "bad4a522-dbc3-4d19-9061-8b228792a633",
-                "Disponível": true
+                "Disponível": false
             },
             {
                 "ID": "c071f2ff-c318-4da2-9a21-8e0fde139247",
@@ -17,7 +17,7 @@
                 "Disponível": true
             }
         ],
-        "Copias Disponíveis": 3
+        "Copias Disponíveis": 2
     },
     {
         "Título": "Dom Casmurro",
@@ -32,7 +32,7 @@
         "Copias Disponíveis": 0
     },
     {
-        "Título": "O pequeno príncipe",
+        "Título": "O Pequeno Príncipe",
         "Autor": "Antoine de Saint-Exupéry",
         "Ano de Publicação": 1943,
         "Copias em Estoque": [
@@ -96,7 +96,7 @@
         "Copias Disponíveis": 3
     },
     {
-        "Título": "Don Quixote",
+        "Título": "Dom Quixote",
         "Autor": "Miguel de Cervantes",
         "Ano de Publicação": 1605,
         "Copias em Estoque": [
@@ -112,39 +112,39 @@
         "Copias Disponíveis": 2
     },
     {
-        "Título": "Alice's Adventures in Wonderland",
+        "Título": "Alice no País das Maravilhas",
         "Autor": "Lewis Carroll",
         "Ano de Publicação": 1865,
         "Copias em Estoque": [
             {
                 "ID": "6f23a945-486f-44db-91d7-4f6f03c45d07",
-                "Disponível": true
+                "Disponível": false
             },
             {
                 "ID": "46133946-873b-4261-8e33-07301a450401",
                 "Disponível": true
             }
         ],
-        "Copias Disponíveis": 2
+        "Copias Disponíveis": 1
     },
     {
-        "Título": "To Kill a Mockingbird",
+        "Título": "O Sol é para Todos",
         "Autor": "Harper Lee",
         "Ano de Publicação": 1960,
         "Copias em Estoque": [
             {
                 "ID": "59938da8-1eb5-41d3-baa4-9a5590e57d23",
-                "Disponível": true
+                "Disponível": false
             },
             {
                 "ID": "ada2b5d0-fc85-4058-9a33-3370865382ab",
                 "Disponível": true
             }
         ],
-        "Copias Disponíveis": 2
+        "Copias Disponíveis": 1
     },
     {
-        "Título": "The Great Gatsby",
+        "Título": "O Grande Gatsby",
         "Autor": "F. Scott Fitzgerald",
         "Ano de Publicação": 1925,
         "Copias em Estoque": [
@@ -156,12 +156,112 @@
         "Copias Disponíveis": 1
     },
     {
-        "Título": "In Search of Lost Time",
+        "Título": "Em Busca do Tempo Perdido",
         "Autor": "Marcel Proust",
         "Ano de Publicação": 1913,
         "Copias em Estoque": [
             {
                 "ID": "f23389ca-fd38-4952-b9c8-eaf66e3f535f",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 1
+    },
+    {
+        "Título": "Frankenstein",
+        "Autor": "Mary Shelley",
+        "Ano de Publicação": 1818,
+        "Copias em Estoque": [
+            {
+                "ID": "fd2ac187-4e55-4ffe-b812-92a4ee95d3f0",
+                "Disponível": true
+            },
+            {
+                "ID": "fe85d18e-7142-4192-9043-27334a78c44e",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 2
+    },
+    {
+        "Título": "Em Busca de Sentido",
+        "Autor": "Viktor E. Frankl",
+        "Ano de Publicação": 1946,
+        "Copias em Estoque": [
+            {
+                "ID": "bda75704-4003-4403-bd4d-d0811186e2af",
+                "Disponível": true
+            },
+            {
+                "ID": "25185778-7211-44a8-97aa-2bf38a2a8e9a",
+                "Disponível": true
+            },
+            {
+                "ID": "a6aaee3a-7baa-4ed8-94e8-9b82cfff2d02",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 3
+    },
+    {
+        "Título": "Duna",
+        "Autor": "Frank Herbert",
+        "Ano de Publicação": 1965,
+        "Copias em Estoque": [
+            {
+                "ID": "0c987c3d-bbe9-441f-bb7e-5e0cd48a6eda",
+                "Disponível": true
+            },
+            {
+                "ID": "063723d2-ed1b-4ff9-998d-7ab892464036",
+                "Disponível": true
+            },
+            {
+                "ID": "de652528-d975-41ca-8e08-e5bd6d67b0c5",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 3
+    },
+    {
+        "Título": "A Culpa é das Estrelas",
+        "Autor": "John Green",
+        "Ano de Publicação": 2012,
+        "Copias em Estoque": [
+            {
+                "ID": "5d824b2b-d14b-4816-b49c-5ac71a04288e",
+                "Disponível": false
+            },
+            {
+                "ID": "43aab5af-3418-4e22-ba99-1a40dfd6a903",
+                "Disponível": true
+            },
+            {
+                "ID": "7282af7a-79b0-425b-9390-5ece2db5608e",
+                "Disponível": true
+            },
+            {
+                "ID": "789cc5d9-229a-4ece-8637-152d97bdcf07",
+                "Disponível": true
+            },
+            {
+                "ID": "b61af823-164f-4832-9d4e-3a5328038a1a",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 4
+    },
+    {
+        "Título": "Os Miseráveis",
+        "Autor": "Victor Hugo",
+        "Ano de Publicação": 1862,
+        "Copias em Estoque": [
+            {
+                "ID": "886ae2da-9035-4e8b-af29-2ae752ce5c62",
+                "Disponível": false
+            },
+            {
+                "ID": "0e9b882b-64ff-4d6d-a1ba-c235f12178f0",
                 "Disponível": true
             }
         ],

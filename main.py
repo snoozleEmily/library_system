@@ -6,7 +6,7 @@ from user import create_user
 from loan import loan_book
 from devolution import make_devolution
 from get_book import ask_book_input
-from report import all_books_report, all_users_report
+from report import books_report, users_report
 
 while True:
     menu()
@@ -29,10 +29,11 @@ while True:
             ask_book_input()
         case '6':
             # Gera um relatório
-            all_users_report()
-            all_books_report()
+            users_report()
+            books_report()
         case '7':
             # Finaliza o programa
+            space()
             print('Sessão Encerrada. Até mais!')
             break
         case _:

@@ -1,6 +1,6 @@
 from typing import Union, Callable
 
-from dash import dash, space
+from dash import space
 from fetch_data import pd, users_df, save_users
 from error import found_error
 
@@ -14,7 +14,7 @@ class User:
         self.cpf = cpf
         self.info = info
 
-def create_user():
+def create_user() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
     input_prompts = [
         ('Nome completo do usuário', 'name'),
         ('CPF', 'cpf'),
@@ -63,22 +63,23 @@ def create_user():
     # Passando as informações da classe User para uma variável
     new_user = User(name, cpf, info)
 
-    global single_user
-    single_user = {
+    global _single_user
+    _single_user = {
+            'ID': len(users_df) + 1,
             'Nome': new_user.name,
             'CPF': new_user.cpf,
             'Contato': new_user.info,
             'Livro Em Posse': {}
             }
     
-    return single_user and add_new_user()
+    return _single_user and add_new_user(users_df)
 
 def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
     new_user_df = pd.DataFrame([_single_user])
 
     space()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
-    print(single_user)
+    print(_single_user)
     print('1.SIM | 2.NÃO')
     correct_input = input()   
 
@@ -100,7 +101,6 @@ def add_new_user(users_df: pd.DataFrame) -> pd.DataFrame:
                 case '2': 
                     create_user()
         case _:
-            # Caso o input não seja 1 ou 2 retorna um erro e requere o input novamente
             found_error('invalid_value')
             correct_input = input('1.SIM | 2.NÃO')
 

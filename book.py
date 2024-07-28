@@ -18,9 +18,9 @@ class Book:
         self.copies_available = copies_available
 
 def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
-    current_year: int = get_current_year()
-    title: str = input('Título do livro: ')
-    author: str = input('Autor do livro: ')
+    current_year= get_current_year()
+    title = input('Título do livro: ')
+    author = input('Autor do livro: ')
     
     numeric_input_prompts = [
         ('Ano de publicação do livro', 'publish_year'),
@@ -56,10 +56,13 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
                         stock_amount = copies_in_stock #Guarda o valor de copies_in_stock como integer
 
                         if stock_amount < copies_available:
-                            # Levanta um erro caso o número de cópias disponíveis seja maior do que cópias em estoque
+                            # Número de cópias disponíveis não pode ser maior do que cópias em estoque
                             error_type = 'exceeded_book_limit'        
-                            raise ValueError                    
+                            raise ValueError 
                         
+                        elif stock_amount > copies_available:
+                            found_error('missing_user')  
+                                                    
                         copies_in_stock = []         
                         availability_count = 0 # Rastreia o número de cópias disponíveis
                         
@@ -89,11 +92,11 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
         'Copias em Estoque': new_book.copies_in_stock,
         'Copias Disponíveis': new_book.copies_available
         }    
-    return _single_book and add_new_book()
+    return _single_book and add_new_book(books_df)
 
 def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
     new_book_df = pd.DataFrame([_single_book])        
-
+    updated_books_df = pd.concat([books_df, new_book_df], ignore_index=True)
     space()
     dash()
     print('Adicionar PERMANETEMENTE os seguintes dados?')
@@ -105,8 +108,7 @@ def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
     correct_input = input()    
     match correct_input:         
         case '1':
-            # Salva os dados do novo livro permanentemente no armazenamento            
-            updated_books_df = pd.concat([books_df, new_book_df], ignore_index=True)
+            # Salva os dados do novo livro permanentemente no armazenamento
             save_books(updated_books_df)
             print('Livro Registrado Com Sucesso!')                             
         case '2':
@@ -116,7 +118,7 @@ def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
             redo_input = input()
             match redo_input:
                 case '1':
-                    _single_book.clear() # Set global variable to None                    
+                    _single_book.clear()                   
                     pass
                 case '2':
                     create_book()
@@ -125,7 +127,7 @@ def add_new_book(books_df: pd.DataFrame) -> pd.DataFrame:
             correct_input = input('1.SIM | 2.NÃO')
             space()
 
-    _single_book.clear() # Set global variable to None
+    _single_book.clear()
     return updated_books_df
 
 if __name__ == '__main__':

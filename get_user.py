@@ -1,6 +1,6 @@
 from typing import Optional
 
-from dash import space
+from dash import dash, space
 from fetch_data import pd, users_df
 from error import found_error
 
@@ -26,8 +26,13 @@ def get_user_data(attribute: str) -> Optional[pd.Series]:
 
         for index, row in users_df.iterrows():
             if row[attribute] == search_value:
+                dash()
                 print('Usuário encontrado: ')
-                print(row)
+                dash()
+                print(f'Nome: ',row.loc['Nome'])
+                print(f'Livro Em Posse: ',row.loc['Livro Em Posse.Título']\
+                    if not pd.isna(row.loc['Livro Em Posse.Título']) else 'Nenhum')
+                dash()
                 space()
                 return row
             
@@ -36,22 +41,28 @@ def get_user_data(attribute: str) -> Optional[pd.Series]:
         ask_user_input()
     
 def ask_user_input() -> Optional[pd.Series]:
-        print('Pesquisar usuário por: ')
-        space()
-        print('1) Nome')
-        print('2) CPF')
+    print('Pesquisar usuário por: ')
+    space()
+    print('1) Nome')
+    print('2) CPF')
 
-        user_search = input('') 
-        match user_search:
-            case '1':
-                reader = get_user_data('Nome')
-                return reader
-            case '2':
-                reader = get_user_data('CPF')
-                return reader
-            case _:
-                found_error('invalid_value') 
-                ask_user_input()
+    user_search = input('') 
+    match user_search:
+        case '1':
+            reader = get_user_data('Nome')
+            return reader
+        case '2':
+            reader = get_user_data('CPF')
+            return reader
+        case _:
+            found_error('invalid_value') 
+            ask_user_input()
+                
+    # Caso o input seja inválido, solicita novamente
+    if reader is None: 
+        found_error('default')
+        return ask_user_input()
+    return reader
 
 if __name__ == '__main__':
     ask_user_input()

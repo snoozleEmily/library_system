@@ -1,12 +1,12 @@
 from dash import *
 
-def header():
+def header() -> None:
     dash()
     print('Sistema de Gerenciamento Bibliotecário')
     dash()
     print('--> Menu')
 
-def menu():
+def menu() -> None:
     header()
     print('1) Registrar Livro')
     print('2) Registrar Usuário')
@@ -17,7 +17,7 @@ def menu():
     print('7) Sair')
     space()
 
-def reports_menu():
+def reports_menu() -> None:
     header()
     print('1) Gerar Relatório Geral')
     print('2) Gerar Relatório De Livros Disponíveis')
