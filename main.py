@@ -1,5 +1,5 @@
 from dash import space
-from menu import menu
+from menu import menu, reports_menu
 from error import found_error
 from book import create_book
 from user import create_user
@@ -25,19 +25,32 @@ while True:
             # Faz devolução de algum livro emprestado
             make_devolution()
         case '5':
-            # Faz a consulta de um livro
+            # Consulta um livro
             ask_book_input()
         case '6':
-            # Gera um relatório
-            users_report()
-            books_report()
+            reports_menu()
+            report_type = input('Escolha uma opção: ')
+            match report_type:
+                case '1':
+                    # Gera um relatório geral
+                    users_report()
+                    books_report()
+                case '2':
+                    # Gera um relatório de livros
+                    books_report()
+                case '3':
+                    # Gera um relatório de usuários
+                    users_report()                    
+                case _:
+                    found_error('invalid_value')
+                    space()
+                    continue
         case '7':
             # Finaliza o programa
             space()
             print('Sessão Encerrada. Até mais!')
             break
         case _:
-            # Retorna erro se input é inválido e reinicia o loop
             found_error('invalid_value')
             space()
             continue

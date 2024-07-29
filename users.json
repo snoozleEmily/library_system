@@ -1,9 +1,9 @@
 ﻿[
     {
         "ID": 1,
-        "Nome": "Eugênia Vieira Almeida",
-        "CPF": "15933335250",
-        "Contato": 997990022,
+        "Nome": "Aline Vieira Souza",
+        "CPF": "40200765701",
+        "Contato": 981234567,
         "Livro Em Posse": {
             "Título": "Dom Casmurro",
             "ID": "34a2065a-a71b-4e5e-803e-a8952483eea7"
@@ -11,9 +11,9 @@
     },
     {
         "ID": 2,
-        "Nome": "João Marcos da Silva",
-        "CPF": "17907775212",
-        "Contato": 999971121,
+        "Nome": "Bruno Marcos dos Santos",
+        "CPF": "51002307921",
+        "Contato": 979876543,
         "Livro Em Posse": {
             "Título": "1984",
             "ID": "e9ce0277-6df8-4a94-9e17-9ad5f8876c28"
@@ -21,23 +21,23 @@
     },
     {
         "ID": 4,
-        "Nome": "Daniel Alves Araújo dos Santos",
-        "CPF": "18911508189",
-        "Contato": 997445411,
+        "Nome": "Carlos Alves Souza dos Santos",
+        "CPF": "69780030213",
+        "Contato": 976543210,
         "Livro Em Posse": {}
     },
     {
         "ID": 8,
-        "Nome": "Gustavo Luís Carvalho",
-        "CPF": "10941494141",
-        "Contato": 998414181,
+        "Nome": "Daniel Luís Ferreira",
+        "CPF": "84639275000",
+        "Contato": 972345678,
         "Livro Em Posse": {}
     },
     {
         "ID": 3,
-        "Nome": "Mariana de Carvalho Dias",
-        "CPF": "14905507999",
-        "Contato": 997992212,
+        "Nome": "Eduarda de Carvalho Silva",
+        "CPF": "52980032012",
+        "Contato": 987654321,
         "Livro Em Posse": {
             "Título": "Orgulho e Preconceito",
             "ID": "d541fb48-9e2f-452f-91aa-0d104afc3b4d"
@@ -45,9 +45,9 @@
     },
     {
         "ID": 5,
-        "Nome": "Samuel Oliveira Batista",
-        "CPF": "11318708222",
-        "Contato": 997977784,
+        "Nome": "Fernanda Oliveira Rocha",
+        "CPF": "68247300124",
+        "Contato": 973456789,
         "Livro Em Posse": {
             "Título": "Alice no País das Maravilhas",
             "ID": "6f23a945-486f-44db-91d7-4f6f03c45d07"
@@ -55,16 +55,16 @@
     },
     {
         "ID": 9,
-        "Nome": "Oliver Madeiros de Jesus",
-        "CPF": "87568933513",
-        "Contato": 971568639,
+        "Nome": "Gabriel Madeiros Souza",
+        "CPF": "51830092056",
+        "Contato": 961234567,
         "Livro Em Posse": {}
     },
     {
         "ID": 6,
-        "Nome": "Cláudia Márcia Sales",
-        "CPF": "11311508111",
-        "Contato": 997983500,
+        "Nome": "Helena Márcia Pereira",
+        "CPF": "74620091017",
+        "Contato": 964785320,
         "Livro Em Posse": {
             "Título": "Harry Potter e a Pedra Filosofal",
             "ID": "bad4a522-dbc3-4d19-9061-8b228792a633"
@@ -72,9 +72,9 @@
     },
     {
         "ID": 7,
-        "Nome": "Fátima Paolla Matos",
-        "CPF": "18911000185",
-        "Contato": 977100185,
+        "Nome": "Isabela Paolla Rocha",
+        "CPF": "63290057123",
+        "Contato": 958741236,
         "Livro Em Posse": {
             "Título": "A Culpa é das Estrelas",
             "ID": "5d824b2b-d14b-4816-b49c-5ac71a04288e"
@@ -82,9 +82,9 @@
     },
     {
         "ID": 10,
-        "Nome": "Felipe Almeida Pereira",
-        "CPF": "12345678900",
-        "Contato": "976985302",
+        "Nome": "Júlia Almeida Carvalho",
+        "CPF": "59487001090",
+        "Contato": 967890432,
         "Livro Em Posse": {
             "Título": "Os Miseráveis",
             "ID": "886ae2da-9035-4e8b-af29-2ae752ce5c62"
@@ -92,9 +92,61 @@
     },
     {
         "ID": 11,
-        "Nome": "Cláudia Alvim",
-        "CPF": "87948133615",
-        "Contato": "988704677",
+        "Nome": "Larissa Alexa Souza",
+        "CPF": "72468930001",
+        "Contato": 977654321,
         "Livro Em Posse": {}
+    },
+    {
+        "ID": 12,
+        "Nome": "Marcelo Alves dos Santos",
+        "CPF": "83004196540",
+        "Contato": 979876543,
+        "Livro Em Posse": {}
+    },
+    {
+        "ID": 13,
+        "Nome": "Natália Clara Pereira",
+        "CPF": "12340078901",
+        "Contato": 981234567,
+        "Livro Em Posse": {}
+    },
+    {
+        "ID": 14,
+        "Nome": "Otávio Ferreira da Silva",
+        "CPF": "23450089012",
+        "Contato": 982345678,
+        "Livro Em Posse": {}
+    },
+    {
+        "ID": 16,
+        "Nome": "Marcos Arthur Souza",
+        "CPF": "45600901234",
+        "Contato": 984567890,
+        "Livro Em Posse": {}
+    },
+    {
+        "ID": 17,
+        "Nome": "Sofia Pereira de Almeida",
+        "CPF": "56789012005",
+        "Contato": 985678901,
+        "Livro Em Posse": {}
+    },
+    {
+        "ID": 18,
+        "Nome": "Thiago Oliveira Silva",
+        "CPF": "67890120056",
+        "Contato": 986789012,
+        "Livro Em Posse": {}
+    },
+    {
+        "ID": 15,
+        "Nome": "Patrícia Regina dos Santos",
+        "CPF": "34500890123",
+        "Contato": 983456789,
+        "Livro Em Posse": {
+            "Título": "Duna",
+            "ID": "0c987c3d-bbe9-441f-bb7e-5e0cd48a6eda"
+        }
     }
 ]

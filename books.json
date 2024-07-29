@@ -174,7 +174,7 @@
         "Copias em Estoque": [
             {
                 "ID": "fd2ac187-4e55-4ffe-b812-92a4ee95d3f0",
-                "Disponível": true
+                "Disponível": false
             },
             {
                 "ID": "fe85d18e-7142-4192-9043-27334a78c44e",
@@ -198,26 +198,6 @@
             },
             {
                 "ID": "a6aaee3a-7baa-4ed8-94e8-9b82cfff2d02",
-                "Disponível": true
-            }
-        ],
-        "Copias Disponíveis": 3
-    },
-    {
-        "Título": "Duna",
-        "Autor": "Frank Herbert",
-        "Ano de Publicação": 1965,
-        "Copias em Estoque": [
-            {
-                "ID": "0c987c3d-bbe9-441f-bb7e-5e0cd48a6eda",
-                "Disponível": true
-            },
-            {
-                "ID": "063723d2-ed1b-4ff9-998d-7ab892464036",
-                "Disponível": true
-            },
-            {
-                "ID": "de652528-d975-41ca-8e08-e5bd6d67b0c5",
                 "Disponível": true
             }
         ],
@@ -266,5 +246,61 @@
             }
         ],
         "Copias Disponíveis": 1
+    },
+    {
+        "Título": "Duna",
+        "Autor": "Frank Herbert",
+        "Ano de Publicação": 1965,
+        "Copias em Estoque": [
+            {
+                "ID": "0c987c3d-bbe9-441f-bb7e-5e0cd48a6eda",
+                "Disponível": false
+            },
+            {
+                "ID": "063723d2-ed1b-4ff9-998d-7ab892464036",
+                "Disponível": true
+            },
+            {
+                "ID": "de652528-d975-41ca-8e08-e5bd6d67b0c5",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 2
+    },
+    {
+        "Título": "Noite na Taverna",
+        "Autor": "Álvares de Azevedo",
+        "Ano de Publicação": 1855,
+        "Copias em Estoque": [
+            {
+                "ID": "4cbdccac-6fe6-45b0-acfa-1263e304718c",
+                "Disponível": true
+            },
+            {
+                "ID": "5f93456a-9267-46d7-882d-8c74d1ed472b",
+                "Disponível": true
+            },
+            {
+                "ID": "a1d36074-81af-47de-b576-e0f87610d58d",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 3
+    },
+    {
+        "Título": "Macunaíma",
+        "Autor": "Mário de Andrade",
+        "Ano de Publicação": 1928,
+        "Copias em Estoque": [
+            {
+                "ID": "a57406aa-0643-49d9-86a8-1f6e5db04f05",
+                "Disponível": true
+            },
+            {
+                "ID": "db909313-bc13-492d-9ddb-dc6715fcb129",
+                "Disponível": true
+            }
+        ],
+        "Copias Disponíveis": 2
     }
-]
+]  

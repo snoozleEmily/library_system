@@ -20,7 +20,6 @@ def menu() -> None:
 def reports_menu() -> None:
     header()
     print('1) Gerar Relatório Geral')
-    print('2) Gerar Relatório De Livros Disponíveis')
-    print('3) Gerar Relatório De Livros Emprestados')
-    print('4) Gerar Relatório De Usuários Cadastrados')
+    print('2) Gerar Relatório De Todos Os Livros')
+    print('3) Gerar Relatório De Usuários Cadastrados')
     space()

@@ -36,7 +36,7 @@ def books_report() -> None:
     # Imprime a quantidade total de livros em estoque
     space()
     dash()  
-    print('RELATÓRIO COMPLETO DOS LIVROS')
+    print('RELATÓRIO LIVROS')
     dash()
     print(f'Há um total de {number_of_titles} títulos e {sum_all_copies} exemplares em estoque')
     space()
@@ -72,7 +72,7 @@ def users_report() -> None:
 
     space()
     dash()    
-    print('RELATÓRIO COMPLETO DOS USUÁRIOS')
+    print('RELATÓRIO USUÁRIOS')
     dash()
     print(f'Há um total de {len(all_users)} usuário(s) cadastrado(s).')
     space()
@@ -88,5 +88,5 @@ def users_report() -> None:
     all_users.clear()
 
 if __name__ == '__main__':
-    users_report()
     books_report()
+    users_report()    
