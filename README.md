@@ -6,7 +6,7 @@ Este é um projeto universitário. Trata-se de um sistema conceitual de gerencia
 
 ## Aviso
 
-Toda a informação exibida sobre os usuários é fictícia. A informação exibida sobre os livros é verídica.
+Toda a informação exibida sobre os usuários é fictícia e a informação exibida sobre os livros é verídica.
 
 ## Uso
 
