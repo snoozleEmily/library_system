@@ -1,15 +1,5 @@
 ﻿[
     {
-        "ID": 1,
-        "Nome": "Aline Vieira Souza",
-        "CPF": "40200765701",
-        "Contato": 981234567,
-        "Livro Em Posse": {
-            "Título": "Dom Casmurro",
-            "ID": "34a2065a-a71b-4e5e-803e-a8952483eea7"
-        }
-    },
-    {
         "ID": 2,
         "Nome": "Bruno Marcos dos Santos",
         "CPF": "51002307921",
@@ -148,5 +138,12 @@
             "Título": "Duna",
             "ID": "0c987c3d-bbe9-441f-bb7e-5e0cd48a6eda"
         }
+    },
+    {
+        "ID": 1,
+        "Nome": "Aline Vieira Souza",
+        "CPF": "40200765701",
+        "Contato": 981234567,
+        "Livro Em Posse": {}
     }
 ]

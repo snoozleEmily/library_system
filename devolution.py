@@ -3,7 +3,7 @@ from error import found_error
 from get_user import ask_user_input
 from fetch_data import pd, books_df, users_df, save_books, save_users
 
-def make_devolution():    
+def make_devolution() -> None:    
     books_df_copy = books_df.copy()
     users_df_copy = users_df.copy()    
     user = ask_user_input()
@@ -21,7 +21,7 @@ def make_devolution():
                 break 
     
     space()
-    print('Efetuar empréstimo?')
+    print('Efetuar devolução?')
     print('1.SIM | 2.NÃO')
     correct_input = input() 
 

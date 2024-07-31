@@ -26,10 +26,10 @@
         "Copias em Estoque": [
             {
                 "ID": "34a2065a-a71b-4e5e-803e-a8952483eea7",
-                "Disponível": false
+                "Disponível": true
             }
         ],
-        "Copias Disponíveis": 0
+        "Copias Disponíveis": 1
     },
     {
         "Título": "O Pequeno Príncipe",
@@ -303,4 +303,4 @@
         ],
         "Copias Disponíveis": 2
     }
-]  
+]

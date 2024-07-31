@@ -4,7 +4,7 @@ from get_user import ask_user_input
 from get_book import ask_book_input 
 from fetch_data import pd, books_df, users_df, save_books, save_users
 
-def loan_book():
+def loan_book() -> None:
     books_df_copy = books_df.copy()
     users_df_copy = users_df.copy()
     user = ask_user_input() 
