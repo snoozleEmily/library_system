@@ -11,7 +11,7 @@ all_users = []
 
 def books_report() -> None:
     unavailable_count = 0  # Contador de livros indisponíveis (emprestados)
-    number_of_titles = len(books_df)  #e.g. Título = Orgulho e Preconceito
+    number_of_titles = len(books_df)  #Título seria o nome, e.g. Orgulho e Preconceito
     sum_all_copies = 0  #e.g. Cópias/Exemplares = lista com ID e dispónibilidade (booleano) 
     
     # Percorre todos os livros de storage.json
