@@ -8,8 +8,11 @@ from fetch_data import pd, books_df, save_books
 # Declarando variável global
 _single_book: dict = {}   
 
-#Cadastro de Livros: título, autor, ano da publicação, quantidade de cópias disponíveis em estoque e as emprestadas
 class Book:
+    '''
+    Cadastro de Livros: título, autor, ano da publicação,
+    quantidade de cópias disponíveis em estoque e as emprestadas
+    '''
     def __init__(self, title, author, publish_year, copies_in_stock, copies_available):
         self.title = title
         self.author = author

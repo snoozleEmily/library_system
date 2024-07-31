@@ -4,7 +4,6 @@ import pandas as pd
 users_path = r'Python-studies\ampli_university_snipets\library_system\users.json'
 books_path = r'Python-studies\ampli_university_snipets\library_system\books.json'
 
-#Pega os dados do storage
 def fetch_books() -> dict:
     with open(books_path, 'r', encoding='utf-8-sig') as f: 
         return json.load(f)

@@ -7,8 +7,10 @@ from error import found_error
 # Declarando variável global
 _single_user: dict = {}
 
-#Cadastro de Usuários: nome, número de identificação (CPF) e contato 
 class User:
+    '''
+    Cadastro de Usuários: nome, número de identificação (CPF) e contato
+    '''
     def __init__(self, name, cpf, info):
         self.name = name
         self.cpf = cpf

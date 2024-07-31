@@ -8,7 +8,7 @@ def make_devolution():
     users_df_copy = users_df.copy()    
     user = ask_user_input()
     
-    book_id = user.loc['Livro Em Posse.ID'] # AttributeError: 'NoneType' object has no attribute 'loc'
+    book_id = user.loc['Livro Em Posse.ID']
     book_name = user.loc['Livro Em Posse.Título']     
     user_index = users_df_copy[users_df_copy['ID'] == user['ID']].index
     
