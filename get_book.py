@@ -4,7 +4,7 @@ from dash import dash, space
 from fetch_data import pd, books_df
 from error import found_error, get_current_year
    
-def display_books(books: pd.DataFrame, header):
+def display_books(books: pd.DataFrame, header) -> None:
     print(header)
     
     for _, row in books.iterrows():
