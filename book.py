@@ -75,9 +75,8 @@ def create_book() -> Union[dict, Callable[[pd.DataFrame], pd.DataFrame]]:
 
                             # Gera uma ID aleatória para a cópia e a adiciona à lista de livros disponíveis
                             copy_id =  str(uuid.uuid4()) 
-                            copies_in_stock.append({'ID': copy_id, 'Disponível': is_available})
-                            
-                            # Incrementa o contador de cópias disponíveis se a cópia estiver disponível para empréstimo
+                            copies_in_stock.append({'ID': copy_id, 'Disponível': is_available})                            
+                           
                             if is_available:                                
                                 availability_count += 1                                                                
                 break
