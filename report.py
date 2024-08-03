@@ -80,8 +80,7 @@ def users_report() -> None:
     # Imprime a lista de todos os usuários    
     for individual_user in all_users:
         dash()
-        print(individual_user)
-        
+        print(individual_user)        
     dash()    
     space()
     space()
