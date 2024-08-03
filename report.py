@@ -14,7 +14,7 @@ def books_report() -> None:
     number_of_titles = len(books_df)  #Título seria o nome, e.g. Orgulho e Preconceito
     sum_all_copies = 0  #e.g. Cópias/Exemplares = lista com ID e dispónibilidade (booleano) 
     
-    # Percorre todos os livros de storage.json
+    # Percorre todos os livros de books.json
     for _, book in books_df.iterrows():
         book_title = book['Título']
         book_author = book['Autor']
