@@ -24,14 +24,11 @@ error_messages = {
     'invalid_book': '[ERRO] Parece que esse livro não está em nossa biblioteca. Será que você digitou certinho?',
     
     # Itens Indisponíveis
-    'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Tente novamente amanhã. {\
-        } Quem sabe esse livro não estará disponível!',
+    'unavailable_book': '[ERRO] Parece que outra pessoa já pegou este livro emprestado. Tente novamente amanhã. Quem sabe esse livro não estará disponível!',
         
-    'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. {\
-        }Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
+    'unavailable_user': '[ERRO] Uh-oh! Parece que temos um devorador de livros por aqui! Esse usuário já possui um livro emprestado. Faça a devolução do mesmo antes de cadastrar outro empréstimo.',
         
-    'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, porém olhei em todos os cantos e não encontrei {\
-        }nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'    
+    'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, porém olhei em todos os cantos e não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'    
 }
 
 def found_error(entry_type: str = None) -> None:
