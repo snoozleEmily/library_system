@@ -24,7 +24,14 @@ def get_book_data(attribute: str) -> Optional[pd.Series]:
     error_type = 'invalid_value' 
        
     try:
-        if attribute == 'Ano de Publicação':          
+        matching_books = books_df[books_df[attribute].str.lower() == search_value.lower()]
+        if not matching_books.empty:
+                display_books(matching_books, header='')
+                return matching_books.iloc[0]
+            
+        if attribute == 'Título': error_type = 'name'            
+            
+        elif attribute == 'Ano de Publicação':          
             if len(str(search_value)) != 4:
                 # Levanta um erro caso o input não tenha 4 digitos
                 error_type = 'year_length'
@@ -52,14 +59,6 @@ def get_book_data(attribute: str) -> Optional[pd.Series]:
                 else:
                     error_type = 'year_unspecified'
                     raise ValueError
-                    
-        elif attribute == 'Título': 
-            error_type = 'name'
-            # Busca por título (case insensitive)
-            matching_books = books_df[books_df['Título'].str.lower() == search_value.lower()]
-            if not matching_books.empty:
-                display_books(matching_books, header='')
-                return matching_books.iloc[0]
             
     except ValueError:
         found_error(f'{error_type}')                
