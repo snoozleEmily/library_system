@@ -44,13 +44,6 @@
         }
     },
     {
-        "ID": 9,
-        "Nome": "Gabriel Madeiros Souza",
-        "CPF": "51830092056",
-        "Contato": 961234567,
-        "Livro Em Posse": {}
-    },
-    {
         "ID": 6,
         "Nome": "Helena Márcia Pereira",
         "CPF": "74620091017",
@@ -145,5 +138,15 @@
         "CPF": "40200765701",
         "Contato": 981234567,
         "Livro Em Posse": {}
+    },
+    {
+        "ID": 9,
+        "Nome": "Gabriel Madeiros Souza",
+        "CPF": "51830092056",
+        "Contato": 961234567,
+        "Livro Em Posse": {
+            "Título": "Ao Farol",
+            "ID": "c4cca17e-9b95-4e8e-9420-a16c2284a579"
+        }
     }
 ]

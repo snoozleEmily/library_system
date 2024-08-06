@@ -304,18 +304,6 @@
         "Copias Disponíveis": 2
     },
     {
-        "Título": "Ao Farol",
-        "Autor": "Virginia Woolf",
-        "Ano de Publicação": 1927,
-        "Copias em Estoque": [
-            {
-                "ID": "c4cca17e-9b95-4e8e-9420-a16c2284a579",
-                "Disponível": true
-            }
-        ],
-        "Copias Disponíveis": 1
-    },
-    {
         "Título": "Cem Anos de Solidão",
         "Autor": "Gabriel García Márquez",
         "Ano de Publicação": 1967,
@@ -326,5 +314,17 @@
             }
         ],
         "Copias Disponíveis": 1
+    },
+    {
+        "Título": "Ao Farol",
+        "Autor": "Virginia Woolf",
+        "Ano de Publicação": 1927,
+        "Copias em Estoque": [
+            {
+                "ID": "c4cca17e-9b95-4e8e-9420-a16c2284a579",
+                "Disponível": false
+            }
+        ],
+        "Copias Disponíveis": 0
     }
 ]
