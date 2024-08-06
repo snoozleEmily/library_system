@@ -24,7 +24,8 @@ def get_book_data(attribute: str) -> Optional[pd.Series]:
     error_type = 'invalid_value' 
        
     try:
-        matching_books = books_df[books_df[attribute].str.lower() == search_value.lower()]
+        chosen_attribute = books_df[attribute].astype(str)
+        matching_books = books_df[chosen_attribute.str.lower() == search_value.lower()]        
         if not matching_books.empty:
                 display_books(matching_books, header='')
                 return matching_books.iloc[0]
