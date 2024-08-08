@@ -30,13 +30,18 @@ error_messages = {
     'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, mas não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'    
 }
 
+
+
+
+
+
 def found_error(entry_type: str = None) -> None:
     """
     Esta função exibe uma mensagem de erro com base no tipo de entrada (entry_type) fornecido.
     
     :param entry_type: Uma string que representa o tipo de erro.
     """
-    # Get the error message from the dictionary based on entry_type
+    # Obtém a mensagem de erro do dicionário com base em entry_type
     error_message = error_messages[entry_type] if entry_type else error_messages['default']
     
     # Verifica se a mensagem de erro pode ser chamada (e.g. lambda)
