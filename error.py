@@ -30,11 +30,6 @@ error_messages = {
     'missing_user': '[ERRO] Parece que algum dos exemplares já foi emprestado, mas não encontrei nenhum usuário registrado com esse livro. Por favor, registre-o agora para evitar problemas.'    
 }
 
-
-
-
-
-
 def found_error(entry_type: str = None) -> None:
     """
     Esta função exibe uma mensagem de erro com base no tipo de entrada (entry_type) fornecido.
