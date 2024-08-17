@@ -6,20 +6,22 @@ This repository was created as a university project. It is a conceptual library 
 
 The code includes comments in Portuguese to provide clarity within the educational context, as the university course is conducted in this language.
 
-For educational purposes, the use of external libraries was avoided to ensure a deeper understanding of working with vanilla Python. However, the `json`, `uuid` and `datetime` libraries were used since they do not significantly impact the core functionalities of the code like other libraries might.
+For educational purposes, the system was initially developed without using the pandas library to ensure a deeper understanding of working with vanilla Python. It was then refactored to incorporate it.
 
 ## Disclaimer
 
 All information displayed about users is fake. The information displayed about the books is fact-based.
 
-## Usage 
+## Usage
 
-To use this library management system, follow these steps:
+This system runs in the terminal and does not have a graphical interface. You need to have Python installed to use it. To use this library management system, follow these steps:
 
-1. Clone this repository to your local machine.
-2. Install Python if you have not already.
-3. Navigate to the project directory.
-4. Run the main Python file to start the system.
+1. Install Python if you haven't already.
+2. Clone this repository to your local machine.
+3. Copy the path of the project's folder named 'docs', then run the following commands in the terminal:
+   1. `cd PATH`
+   2. `pip install -r requirements.txt`
+4. Finally, run the main Python file to start the system.
 
 ## Prerequisites
 
