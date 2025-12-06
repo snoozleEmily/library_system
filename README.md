@@ -25,7 +25,7 @@ This system runs in the terminal and does not have a graphical interface. You ne
 
 ## Prerequisites
 
-Please refer to the [prerequisites.md](./docs/prerequisites.md) file for a detailed list of the pre-requirements made by my professors.
+Please refer to the [prerequisites.md](./docs/prerequisites.md) file for a detailed list of the pre-requirements made by the professors.
 
 ## Contributing
 
